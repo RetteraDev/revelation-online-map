@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  cursor: url(../public/misc/cursor_com.png) 2 2, auto;
+}
+
+a {
+  cursor: inherit !important;
 }
 
 .App-logo {

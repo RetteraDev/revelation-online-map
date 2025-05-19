@@ -1,2 +1,16 @@
 .leaflet-attribution-flag { display: none !important; }
 .leaflet-control-attribution { display: none !important; }
+
+.leaflet-interactive,
+.leaflet-grab,
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive,
+.leaflet-popup-pane,
+.leaflet-control,
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable,
+.leaflet-tooltip.leaflet-interactive,
+.leaflet-bar a.leaflet-disabled {
+	cursor: inherit !important;
+}
