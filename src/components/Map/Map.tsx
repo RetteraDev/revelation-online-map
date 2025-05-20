@@ -2,11 +2,9 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { coordinateReference } from '../../utils/mapConfig';
 import './Map.css';
 import MapCoordinates from '../MapCoordinates/MapCoordinates';
-import SearchString from '../MapFilter/SearchString';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { filterMapPoints } from '../../utils/resourceFilter';
-import { gatheringSpots, IMapPoint } from '../../data/resources';
+import { gatheringSpotItems, gatheringSpots, IMapPoint, mapPoints } from '../../data/resources';
 
 
 function Map() {
@@ -14,9 +12,16 @@ function Map() {
     const [filteredPoints, setFilteredPoints] = useState<IMapPoint[]>([]);
 
     useEffect(() => {
-        const points = filterMapPoints(searchParams);
-        console.log(points)
-        setFilteredPoints(points);
+        const itemIds = searchParams.get('items')?.split(',') || [];
+
+        const spotsWithItem = gatheringSpotItems
+        .filter(gsItem => itemIds.includes(String(gsItem.itemId)) )
+        .map(gsItem => gsItem.gatheringSpotId);
+        
+        setFilteredPoints(mapPoints.filter(point => 
+        spotsWithItem.includes(point.gatheringSpotId)
+        )) 
+
     }, [searchParams]);
 
     return (
@@ -36,7 +41,9 @@ function Map() {
             />
 
             <MapCoordinates />
-            <SearchString />
+
+            {/* Пока не понятно надо или нет */}
+            {/* <SearchString /> */}
 
             {/* Рисуем ресурсы */}
             {filteredPoints.map(point => (
