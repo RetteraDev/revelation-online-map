@@ -17,7 +17,7 @@ function MapCoordinates() {
       <div className="leaflet-control coordinates-display">
         <div className="coordinates-title">Карта</div>
         <div className="coordinates-value">
-          {Math.trunc(position.lat)}, {Math.trunc(position.lng)}
+          {Math.trunc(position.lng)}, {Math.trunc(position.lat)}
         </div>
       </div>
     </div>
