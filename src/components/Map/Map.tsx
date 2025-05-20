@@ -3,6 +3,7 @@ import { coordinateReference } from '../../utils/mapConfig'
 
 import './Map.css'
 import MapCoordinates from '../MapCoordinates/MapCoordinates'
+import SearchString from '../MapFilter/SearchString'
 
 
 function Map() {
@@ -24,7 +25,7 @@ function Map() {
             />
 
             <MapCoordinates/>
-
+            <SearchString/>
         </MapContainer>
     )
 }
