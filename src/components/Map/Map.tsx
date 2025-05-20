@@ -1,12 +1,23 @@
-import { MapContainer, TileLayer } from 'react-leaflet'
-import { coordinateReference } from '../../utils/mapConfig'
-
-import './Map.css'
-import MapCoordinates from '../MapCoordinates/MapCoordinates'
-import SearchString from '../MapFilter/SearchString'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { coordinateReference } from '../../utils/mapConfig';
+import './Map.css';
+import MapCoordinates from '../MapCoordinates/MapCoordinates';
+import SearchString from '../MapFilter/SearchString';
+import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { filterMapPoints } from '../../utils/resourceFilter';
+import { gatheringSpots, IMapPoint } from '../../data/resources';
 
 
 function Map() {
+    const [searchParams] = useSearchParams();
+    const [filteredPoints, setFilteredPoints] = useState<IMapPoint[]>([]);
+
+    useEffect(() => {
+        const points = filterMapPoints(searchParams);
+        console.log(points)
+        setFilteredPoints(points);
+    }, [searchParams]);
 
     return (
         <MapContainer
@@ -24,10 +35,17 @@ function Map() {
                 noWrap={true}
             />
 
-            <MapCoordinates/>
-            <SearchString/>
+            <MapCoordinates />
+            <SearchString />
+
+            {/* Рисуем ресурсы */}
+            {filteredPoints.map(point => (
+                <Marker key={point.mapPointId} position={[point.location.y, point.location.x]}>
+                    <Popup>{gatheringSpots[point.gatheringSpotId].gatheringSpotName}</Popup>
+                </Marker>
+            ))}
         </MapContainer>
-    )
+    );
 }
 
 export default Map;

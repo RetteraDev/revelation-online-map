@@ -48,11 +48,12 @@ export function searchAll(partialName: string): ISearchResult[] {
 
 
 // Поиск точек на карте по фильтру
-export function filterMapPoints(filter: ISearchResult): IMapPoint[] {
-  switch (filter.type) {
-    case 'category':
-      // Для категории находим все точки сбора этой категории, затем все mapPoints с этими точками
-      const categoryId = parseInt(filter.id);
+export function filterMapPoints(searchParams: URLSearchParams): IMapPoint[] {
+  // Проверяем, какой ключ есть в searchParams
+  if (searchParams.has('category')) {
+    const categoryId = parseInt(searchParams.get('category') || '');
+    if (isNaN(categoryId)) return [];
+
       const spotsInCategory = Object.entries(gatheringSpots)
         .filter(([_, spot]) => spot.category === categoryId)
         .map(([id]) => parseInt(id));
@@ -60,17 +61,21 @@ export function filterMapPoints(filter: ISearchResult): IMapPoint[] {
       return mapPoints.filter(point => 
         spotsInCategory.includes(point.gatheringSpotId)
       );
+  }
 
-    case 'gatheringSpot':
-      // Для точки сбора просто фильтруем по gatheringSpotId
-      const spotId = parseInt(filter.id);
+  if (searchParams.has('gatheringSpot')) {
+    const spotId = parseInt(searchParams.get('gatheringSpot') || '');
+    if (isNaN(spotId)) return [];
+
       return mapPoints.filter(point => 
         point.gatheringSpotId === spotId
       );
+  }
 
-    case 'item':
-      // Для предмета находим все точки сбора, где он встречается, затем все mapPoints с этими точками
-      const itemId = parseInt(filter.id);
+  if (searchParams.has('item')) {
+    const itemId = parseInt(searchParams.get('item') || '');
+    if (isNaN(itemId)) return [];
+
       const spotsWithItem = gatheringSpotItems
         .filter(gsItem => gsItem.itemId === itemId)
         .map(gsItem => gsItem.gatheringSpotId);
@@ -78,8 +83,7 @@ export function filterMapPoints(filter: ISearchResult): IMapPoint[] {
       return mapPoints.filter(point => 
         spotsWithItem.includes(point.gatheringSpotId)
       );
-
-    default:
-      return [];
   }
+
+  return [];
 }

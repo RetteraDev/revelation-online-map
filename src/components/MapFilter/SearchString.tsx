@@ -1,16 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import './SearchString.css';
 
 import { ISearchResult, searchAll } from '../../utils/resourceFilter';
 
-
 const RESULTS_PER_PAGE = 5;
 
 const SearchString: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<ISearchResult[]>([]);
-  const [isFocused, setIsFocused] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+    // Refs для клика вне компонента
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -31,7 +35,7 @@ const SearchString: React.FC = () => {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Закрытие результатов при клике вне компонента
+  // Обработка клика вне компонента для закрытия результатов
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
@@ -43,75 +47,71 @@ const SearchString: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
-  };
-
+  // Обновление URL при выборе результата
   const handleResultSelect = (result: ISearchResult) => {
-    const params = new URLSearchParams();
-    params.set(result.type, result.id);
-    window.history.pushState({}, '', `?${params.toString()}`);
-    
+    // Обновляем параметры поиска в URL
+    setSearchParams({ [result.type]: result.id });
+    // Обновляем локальный стейт поиска
     setSearchQuery(result.name);
     setIsFocused(false);
   };
 
+  // Очистка поиска и URL
   const handleClearInput = () => {
     setSearchQuery('');
     setSearchResults([]);
     inputRef.current?.focus();
-    window.history.pushState({}, '', window.location.pathname);
+    setSearchParams({});
   };
 
-  const handleNextPage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentPage(prev => prev + 1);
+  // Обработка ввода
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
-  const handlePrevPage = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setCurrentPage(prev => prev - 1);
-  };
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
+  // Пагинация
   const totalPages = Math.ceil(searchResults.length / RESULTS_PER_PAGE);
   const startIndex = currentPage * RESULTS_PER_PAGE;
   const endIndex = startIndex + RESULTS_PER_PAGE;
   const currentResults = searchResults.slice(startIndex, endIndex);
 
+  const handleNextPage = () => {
+    if (currentPage < totalPages -1) {
+      setCurrentPage(prev => prev +1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(prev => prev -1);
+    }
+  };
+
+  // Отображение подсказок и результатов
   const showInitialHelp = isFocused && !searchQuery;
-  const showNoResults = isFocused && searchQuery && searchResults.length === 0;
-  const showResults = isFocused && searchResults.length > 0;
+	const showNoResults = isFocused && searchQuery && searchResults.length === 0;
+	const showResults = isFocused && searchResults.length > 0;
 
   return (
-    <div 
-      className="search-container"
-      ref={searchRef}
-    >
+		<div className="search-container" ref={searchRef}>
       <div className="search-input-wrapper">
         <input
           ref={inputRef}
           type="text"
           value={searchQuery}
           onChange={handleInputChange}
-          onFocus={handleFocus}
+					onFocus={() => setIsFocused(true)}
           placeholder="Поиск ресурсов..."
           className="search-input"
         />
         {searchQuery && (
-          <button 
-            className="clear-button"
-            onClick={handleClearInput}
-            aria-label="Очистить поиск"
-          >
+            <button className="clear-button" onClick={handleClearInput} aria-label="Очистить поиск">
             ×
           </button>
         )}
       </div>
 
+      {/* Помощь при пустом вводе */}
       {showInitialHelp && (
         <div className="search-dropdown">
           <div className="help-message">
@@ -120,14 +120,14 @@ const SearchString: React.FC = () => {
         </div>
       )}
 
+      {/* Нет результатов */}
       {showNoResults && (
         <div className="search-dropdown">
-          <div className="no-results-message">
-            Ничего не найдено
-          </div>
+            <div className="no-results-message">Ничего не найдено</div>
         </div>
       )}
 
+      {/* Результаты поиска */}
       {showResults && (
         <div className="search-dropdown">
           <div className="search-results-list">
@@ -138,9 +138,7 @@ const SearchString: React.FC = () => {
                 onClick={() => handleResultSelect(result)}
               >
                 <span className="result-name">{result.name}</span>
-                <span className={`result-type ${result.type}`}>
-                  {result.type}
-                </span>
+					 <span className={`result-type ${result.type}`}>{result.type}</span>
               </div>
             ))}
           </div>
