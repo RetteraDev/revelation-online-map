@@ -4,7 +4,9 @@ import './Map.css';
 import MapCoordinates from '../MapCoordinates/MapCoordinates';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { gatheringSpotItems, gatheringSpots, IMapPoint, mapPoints } from '../../data/resources';
+import { gatheringSpotItems, gatheringSpots, IMapPoint, items, mapPoints } from '../../data/resources';
+import { getGatheringSpotIcon } from '../../utils/icon';
+import { GatheringSpotPopup } from '../MapMarker/GatheringSpotPopup';
 
 
 function Map() {
@@ -47,8 +49,23 @@ function Map() {
 
             {/* Рисуем ресурсы */}
             {filteredPoints.map(point => (
-                <Marker key={point.mapPointId} position={[point.location.y, point.location.x]}>
+                <Marker icon={getGatheringSpotIcon(point.gatheringSpotId)} key={point.mapPointId} position={[point.location.y, point.location.x]}>
                     <Popup>{gatheringSpots[point.gatheringSpotId].gatheringSpotName}</Popup>
+                </Marker>
+            ))}
+
+            {filteredPoints.map(point => (
+                <Marker 
+                    icon={getGatheringSpotIcon(point.gatheringSpotId)} 
+                    key={point.mapPointId} 
+                    position={[point.location.y, point.location.x]}
+                >
+                    <GatheringSpotPopup 
+                        point={point}
+                        gatheringSpots={gatheringSpots}
+                        gatheringSpotItems={gatheringSpotItems}
+                        itemsData={items}
+                    />
                 </Marker>
             ))}
         </MapContainer>
