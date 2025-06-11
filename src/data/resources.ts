@@ -8,8 +8,9 @@ export enum ECategory {
     MINING = 'mining',
     HERBALISM = 'herbalism',
     WOODCRAFTING = 'woodcrafting',
-    FISHING = 'fishing',
     MERCHANT = 'merchant',
+    FISHING = 'fishing',
+    SHADOW = 'shadow',
     OTHER = 'other'
 }
 
@@ -61,6 +62,26 @@ export enum ESpot {
     // ECategory.FISHING
 
     // ECategory.MERCHANT
+    
+    //ECategory.SHADOW
+    SHADOW_1 = 'shadow-1',
+    SHADOW_2 = 'shadow-2',
+    SHADOW_3 = 'shadow-3',
+    SHADOW_4 = 'shadow-4',
+    SHADOW_5 = 'shadow-5',
+    SHADOW_6 = 'shadow-6',
+    SHADOW_7 = 'shadow-7',
+    SHADOW_8 = 'shadow-8',
+    SHADOW_9 = 'shadow-9',
+    SHADOW_10 = 'shadow-10',
+    SHADOW_11 = 'shadow-11',
+    SHADOW_12 = 'shadow-12',
+    SHADOW_13 = 'shadow-13',
+    SHADOW_14 = 'shadow-14',
+    SHADOW_15 = 'shadow-15',
+
+    //ECategory.OTHER
+    PORTAL = 'portal'
 }
 
 export interface ISpot {
@@ -121,10 +142,30 @@ export enum EItem {
     SPRUCE_NEEDLES = 'spruce-needles',
     GLOWING_BERRY = 'glowing-berry',
     VALUABLE_WOOD = 'valuable-wood',
-    MAPLE_LEAFS = 'maple-leafs',
+    MAPLE_LEAF = 'maple-leaf',
     PITCH = 'pitch',
     FIRST_CLASS_WOOD = 'first-class-wood',
-    STICKMAN = 'stickman'
+    STICKMAN = 'stickman',
+
+    // ECategory.SHADOW
+    SHADOW_1 = 'shadow-1',
+    SHADOW_2 = 'shadow-2',
+    SHADOW_3 = 'shadow-3',
+    SHADOW_4 = 'shadow-4',
+    SHADOW_5 = 'shadow-5',
+    SHADOW_6 = 'shadow-6',
+    SHADOW_7 = 'shadow-7',
+    SHADOW_8 = 'shadow-8',
+    SHADOW_9 = 'shadow-9',
+    SHADOW_10 = 'shadow-10',
+    SHADOW_11 = 'shadow-11',
+    SHADOW_12 = 'shadow-12',
+    SHADOW_13 = 'shadow-13',
+    SHADOW_14 = 'shadow-14',
+    SHADOW_15 = 'shadow-15',
+
+    // ECategory.OTHER
+    PORTAL = 'portal'
 }
 
 export interface IItem {
@@ -139,8 +180,9 @@ export const categories: Record<ECategory, ICategory> = {
   [ECategory.MINING]: { name: 'Горное дело' },
   [ECategory.HERBALISM]: { name: 'Травничество' },
   [ECategory.WOODCRAFTING]: { name: 'Заготовка древесины' },
-  [ECategory.FISHING]: { name: 'Рыбалка' },
   [ECategory.MERCHANT]: { name: 'Ресурсы у торговцев' },
+  [ECategory.FISHING]: { name: 'Рыбалка' },
+  [ECategory.SHADOW]: { name: 'Мир теней' },
   [ECategory.OTHER]: { name: 'Прочее' }
 };
 
@@ -402,7 +444,7 @@ export const spots: Record<ESpot, ISpot> = {
   [ESpot.MAPLE]: { 
     name: 'Клен', 
     category: ECategory.WOODCRAFTING,
-    items: [EItem.VALUABLE_WOOD, EItem.MAPLE_LEAFS],
+    items: [EItem.VALUABLE_WOOD, EItem.MAPLE_LEAF],
     locations: []
   },
   [ESpot.GOLDEN_OAK]: { 
@@ -418,12 +460,171 @@ export const spots: Record<ESpot, ISpot> = {
     locations: []
   },
 
+  // ECategory.MERCHANT
+
   // ECategory.FISHING
 
-  // ECategory.MERCHANT
+  
+  // ECategory.SHADOW
+  [ESpot.SHADOW_1]: { 
+    name: 'Мир теней 1 ур.', 
+    category: ECategory.SHADOW,
+    items: [],
+    locations: []
+  },
+  [ESpot.SHADOW_2]: { 
+      name: 'Мир теней 2 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_3]: { 
+      name: 'Мир теней 3 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_4]: { 
+      name: 'Мир теней 4 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_5]: { 
+      name: 'Мир теней 5 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_6]: { 
+      name: 'Мир теней 6 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_7]: { 
+      name: 'Мир теней 7 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_8]: { 
+      name: 'Мир теней 8 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_9]: { 
+      name: 'Мир теней 9 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_10]: { 
+      name: 'Мир теней 10 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_11]: { 
+      name: 'Мир теней 11 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_12]: { 
+      name: 'Мир теней 12 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_13]: { 
+      name: 'Мир теней 13 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_14]: { 
+      name: 'Мир теней 14 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+  [ESpot.SHADOW_15]: { 
+      name: 'Мир теней 15 ур.', 
+      category: ECategory.SHADOW,
+      items: [],
+      locations: []
+  },
+
+  // ECategory.OTHER
+  [ESpot.PORTAL]: { 
+    name: 'Портал', 
+    category: ECategory.OTHER,
+    items: [],
+    locations: [
+      {x: 5939, y: -1781, z: 10}, {x: 5360, y: -1534, z: 3}, {x: 5473, y: -1984, z: 9},
+      {x: 5454, y: -1191, z: 111}, {x: 4367, y: -1866, z: 36}, {x: 5405, y: -2435, z: 3},
+      {x: 5184, y: -2745, z: 21}, {x: 5843, y: -2978, z: 1}, {x: 4950, y: -2491, z: 43},
+      {x: 5123, y: -1967, z: 35}, {x: 4106, y: -1010, z: 2}, {x: 5587, y: -665, z: 1},
+      {x: 5351, y: -80, z: 13}, {x: 4807, y: 136, z: 143}, {x: 4775, y: 1390, z: 13},
+      {x: 3275, y: 246, z: 80}, {x: 1929, y: 200, z: 56}, {x: 2127, y: 573, z: 3},
+      {x: 1573, y: 1352, z: 133}, {x: 2078, y: 1527, z: 183}, {x: 903, y: -418, z: 12},
+      {x: 219, y: 256, z: 52}, {x: 172, y: 1822, z: 18}, {x: -1349, y: 3270, z: 1},
+      {x: 403, y: 3712, z: 16}, {x: -2304, y: 872, z: 80}, {x: -2672, y: 886, z: 233},
+      {x: -2986, y: 955, z: 241}, {x: -1593, y: -791, z: 23}, {x: -1853, y: -129, z: 13},
+      {x: -604, y: 55, z: 27}, {x: -1885, y: -3303, z: 19}, {x: -1177, y: -2436, z: 51},
+      {x: 195, y: -1895, z: 0}, {x: 2814, y: -475, z: -22}, {x: 1760, y: -1920, z: -67},
+      {x: -2768, y: -3742, z: 262}, {x: -3412, y: -3478, z: 91}, {x: 674, y: -2820, z: -50},
+      {x: -44, y: -3300, z: -140}, {x: 5098, y: 2896, z: 278}, {x: -2711, y: 3145, z: -18},
+      {x: -6095, y: 2899, z: 122}, {x: -3642, y: 202, z: 234}, {x: -4688, y: -3664, z: -142},
+      {x: -4720, y: -3662, z: 8}, {x: -446, y: -3761, z: -288}, {x: 1700, y: -3265, z: 29},
+      {x: 3399, y: -1884, z: 16}, {x: 3249, y: -269, z: 147}
+    ]
+  },
 };
 
 export const items: Record<EItem, IItem> = {
+    // ECategory.MINING
+    [EItem.AMETRINE]: {
+        id: EItem.AMETRINE,
+        name: 'Аметрин',
+        category: ECategory.MINING,
+        spots: [ESpot.AMETRINE_VEIN]
+    },
+    [EItem.BAUXITE]: {
+        id: EItem.BAUXITE,
+        name: 'Боксит',
+        category: ECategory.MINING,
+        spots: [ESpot.BAUXITE_VEIN]
+    },
+    [EItem.PEBBLE]: {
+        id: EItem.PEBBLE,
+        name: 'Галька',
+        category: ECategory.MINING,
+        spots: [ESpot.SCATTERING_OF_PEBBLE]
+    },
+    [EItem.GRANITE]: {
+        id: EItem.GRANITE,
+        name: 'Гранит',
+        category: ECategory.MINING,
+        spots: [
+            ESpot.JADE_VEIN,
+            ESpot.RHYOLITE_VEIN
+        ]
+    },
+    [EItem.IRON_ORE]: {
+        id: EItem.IRON_ORE,
+        name: 'Железная руда',
+        category: ECategory.MINING,
+        spots: [ESpot.IRON_VEIN]
+    },
+    [EItem.GOLD_ORE]: {
+        id: EItem.GOLD_ORE,
+        name: 'Золотая руда',
+        category: ECategory.MINING,
+        spots: [ESpot.GOLD_VEIN]
+    },
     [EItem.LIMESTONE]: {
         id: EItem.LIMESTONE,
         name: 'Известняк',
@@ -434,23 +635,35 @@ export const items: Record<EItem, IItem> = {
             ESpot.COPPER_VEIN
         ]
     },
-    [EItem.PEBBLE]: {
-        id: EItem.PEBBLE,
-        name: 'Галька',
+    [EItem.CORUNDUM]: {
+        id: EItem.CORUNDUM,
+        name: 'Корунд',
         category: ECategory.MINING,
-        spots: [ESpot.SCATTERING_OF_PEBBLE]
+        spots: [ESpot.CORUNDUM_VEIN]
     },
-    [EItem.SILVER_ORE]: {
-        id: EItem.SILVER_ORE,
-        name: 'Серебряная руда',
+    [EItem.LIMONITE]: {
+        id: EItem.LIMONITE,
+        name: 'Лимонит',
         category: ECategory.MINING,
-        spots: [ESpot.SILVER_VEIN]
+        spots: [ESpot.LIMONITE_VEIN]
     },
     [EItem.COPPER_ORE]: {
         id: EItem.COPPER_ORE,
         name: 'Медная руда',
         category: ECategory.MINING,
         spots: [ESpot.COPPER_VEIN]
+    },
+    [EItem.MARBLE]: {
+        id: EItem.MARBLE,
+        name: 'Мрамор',
+        category: ECategory.MINING,
+        spots: [ESpot.CORUNDUM_VEIN]
+    },
+    [EItem.JADE]: {
+        id: EItem.JADE,
+        name: 'Нефрит',
+        category: ECategory.MINING,
+        spots: [ESpot.JADE_VEIN]
     },
     [EItem.SANDSTONE]: {
         id: EItem.SANDSTONE,
@@ -462,23 +675,17 @@ export const items: Record<EItem, IItem> = {
             ESpot.SPINEL_VEIN
         ]
     },
-    [EItem.GOLD_ORE]: {
-        id: EItem.GOLD_ORE,
-        name: 'Золотая руда',
+    [EItem.RHYOLITE_CHIP]: {
+        id: EItem.RHYOLITE_CHIP,
+        name: 'Риолитовая крошка',
         category: ECategory.MINING,
-        spots: [ESpot.GOLD_VEIN]
+        spots: [ESpot.RHYOLITE_VEIN]
     },
-    [EItem.IRON_ORE]: {
-        id: EItem.IRON_ORE,
-        name: 'Железная руда',
+    [EItem.SILVER_ORE]: {
+        id: EItem.SILVER_ORE,
+        name: 'Серебряная руда',
         category: ECategory.MINING,
-        spots: [ESpot.IRON_VEIN]
-    },
-    [EItem.SPINEL]: {
-        id: EItem.SPINEL,
-        name: 'Шпинель',
-        category: ECategory.MINING,
-        spots: [ESpot.SPINEL_VEIN]
+        spots: [ESpot.SILVER_VEIN]
     },
     [EItem.SLATE]: {
         id: EItem.SLATE,
@@ -490,65 +697,107 @@ export const items: Record<EItem, IItem> = {
             ESpot.AMETRINE_VEIN
         ]
     },
-    [EItem.BAUXITE]: {
-        id: EItem.BAUXITE,
-        name: 'Боксит',
+    [EItem.SPINEL]: {
+        id: EItem.SPINEL,
+        name: 'Шпинель',
         category: ECategory.MINING,
-        spots: [ESpot.BAUXITE_VEIN]
+        spots: [ESpot.SPINEL_VEIN]
     },
-    [EItem.LIMONITE]: {
-        id: EItem.LIMONITE,
-        name: 'Лимонит',
-        category: ECategory.MINING,
-        spots: [ESpot.LIMONITE_VEIN]
-    },
-    [EItem.AMETRINE]: {
-        id: EItem.AMETRINE,
-        name: 'Аметрин',
-        category: ECategory.MINING,
-        spots: [ESpot.AMETRINE_VEIN]
-    },
-    [EItem.GRANITE]: {
-        id: EItem.GRANITE,
-        name: 'Гранит',
-        category: ECategory.MINING,
+
+    // ECategory.HERBALISM
+    [EItem.SWAMP_COLLECTION]: {
+        id: EItem.SWAMP_COLLECTION,
+        name: 'Болотный сбор',
+        category: ECategory.HERBALISM,
         spots: [
-            ESpot.JADE_VEIN,
-            ESpot.RHYOLITE_VEIN
+            ESpot.FERN,
+            ESpot.RATTAN
         ]
     },
-    [EItem.JADE]: {
-        id: EItem.JADE,
-        name: 'Нефрит',
-        category: ECategory.MINING,
-        spots: [ESpot.JADE_VEIN]
+    [EItem.GINSENG_ROOT]: {
+        id: EItem.GINSENG_ROOT,
+        name: 'Корень женьшеня',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.GINSENG]
     },
-    [EItem.RHYOLITE_CHIP]: {
-        id: EItem.RHYOLITE_CHIP,
-        name: 'Риолитовая крошка',
-        category: ECategory.MINING,
-        spots: [ESpot.RHYOLITE_VEIN]
+    [EItem.CORIANDER]: {
+        id: EItem.CORIANDER,
+        name: 'Кориандр',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.CORIANDER]
     },
-    [EItem.MARBLE]: {
-        id: EItem.MARBLE,
-        name: 'Мрамор',
-        category: ECategory.MINING,
-        spots: [ESpot.CORUNDUM_VEIN]
+    [EItem.RED_FROG]: {
+        id: EItem.RED_FROG,
+        name: 'Красная лягушка',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.BLUE_ORCHID]
     },
-    [EItem.CORUNDUM]: {
-        id: EItem.CORUNDUM,
-        name: 'Корунд',
-        category: ECategory.MINING,
-        spots: [ESpot.CORUNDUM_VEIN]
+    [EItem.SILKWORM_PUPA]: {
+        id: EItem.SILKWORM_PUPA,
+        name: 'Куколка шелкопряда',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.MULBERRY_TREE]
+    },
+    [EItem.FOREST_COLLECTION]: {
+        id: EItem.FOREST_COLLECTION,
+        name: 'Лесной сбор',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.BLUE_ORCHID]
+    },
+    [EItem.FERN_LEAVES]: {
+        id: EItem.FERN_LEAVES,
+        name: 'Листья папоротника',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.FERN]
     },
     [EItem.MEADOW_COLLECTION]: {
         id: EItem.MEADOW_COLLECTION,
-        name: 'Луговая коллекция',
+        name: 'Луговой сбор',
         category: ECategory.HERBALISM,
         spots: [
             ESpot.CHAMPIGNON,
             ESpot.ROSEHIP
         ]
+    },
+    [EItem.FIELD_COLLECTION]: {
+        id: EItem.FIELD_COLLECTION,
+        name: 'Полевой сбор',
+        category: ECategory.HERBALISM,
+        spots: [
+            ESpot.CORIANDER,
+            ESpot.ALMOND,
+            ESpot.SNAPDRAGON
+        ]
+    },
+    [EItem.GARDEN_COLLECTION]: {
+        id: EItem.GARDEN_COLLECTION,
+        name: 'Садовый сбор',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.MULBERRY_TREE]
+    },
+    [EItem.CENTIPEDE]: {
+        id: EItem.CENTIPEDE,
+        name: 'Многоножка',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.SNAPDRAGON]
+    },
+    [EItem.RATTAN_STEMS]: {
+        id: EItem.RATTAN_STEMS,
+        name: 'Стебли ротанга',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.RATTAN]
+    },
+    [EItem.NASTURTIUM_BLOSSOM]: {
+        id: EItem.NASTURTIUM_BLOSSOM,
+        name: 'Цветок настурции',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.NASTURTIUM]
+    },
+    [EItem.ALMOND_FLOWERS]: {
+        id: EItem.ALMOND_FLOWERS,
+        name: 'Цветы миндаля',
+        category: ECategory.HERBALISM,
+        spots: [ESpot.ALMOND]
     },
     [EItem.CHAMPIGNON]: {
         id: EItem.CHAMPIGNON,
@@ -562,91 +811,8 @@ export const items: Record<EItem, IItem> = {
         category: ECategory.HERBALISM,
         spots: [ESpot.ROSEHIP]
     },
-    [EItem.SWAMP_COLLECTION]: {
-        id: EItem.SWAMP_COLLECTION,
-        name: 'Болотная коллекция',
-        category: ECategory.HERBALISM,
-        spots: [
-            ESpot.FERN,
-            ESpot.RATTAN
-        ]
-    },
-    [EItem.FERN_LEAVES]: {
-        id: EItem.FERN_LEAVES,
-        name: 'Листья папоротника',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.FERN]
-    },
-    [EItem.GINSENG_ROOT]: {
-        id: EItem.GINSENG_ROOT,
-        name: 'Корень женьшеня',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.GINSENG]
-    },
-    [EItem.NASTURTIUM_BLOSSOM]: {
-        id: EItem.NASTURTIUM_BLOSSOM,
-        name: 'Цветок настурции',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.NASTURTIUM]
-    },
-    [EItem.RATTAN_STEMS]: {
-        id: EItem.RATTAN_STEMS,
-        name: 'Стебли ротанга',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.RATTAN]
-    },
-    [EItem.FIELD_COLLECTION]: {
-        id: EItem.FIELD_COLLECTION,
-        name: 'Полевая коллекция',
-        category: ECategory.HERBALISM,
-        spots: [
-            ESpot.CORIANDER,
-            ESpot.ALMOND,
-            ESpot.SNAPDRAGON
-        ]
-    },
-    [EItem.CORIANDER]: {
-        id: EItem.CORIANDER,
-        name: 'Кориандр',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.CORIANDER]
-    },
-    [EItem.ALMOND_FLOWERS]: {
-        id: EItem.ALMOND_FLOWERS,
-        name: 'Цветы миндаля',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.ALMOND]
-    },
-    [EItem.FOREST_COLLECTION]: {
-        id: EItem.FOREST_COLLECTION,
-        name: 'Лесная коллекция',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.BLUE_ORCHID]
-    },
-    [EItem.RED_FROG]: {
-        id: EItem.RED_FROG,
-        name: 'Красная лягушка',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.BLUE_ORCHID]
-    },
-    [EItem.CENTIPEDE]: {
-        id: EItem.CENTIPEDE,
-        name: 'Сороконожка',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.SNAPDRAGON]
-    },
-    [EItem.GARDEN_COLLECTION]: {
-        id: EItem.GARDEN_COLLECTION,
-        name: 'Садовная коллекция',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.MULBERRY_TREE]
-    },
-    [EItem.SILKWORM_PUPA]: {
-        id: EItem.SILKWORM_PUPA,
-        name: 'Куколка шелкопряда',
-        category: ECategory.HERBALISM,
-        spots: [ESpot.MULBERRY_TREE]
-    },
+
+    // ECategory.WOODCRAFTING
     [EItem.ROTTEN_WOOD]: {
         id: EItem.ROTTEN_WOOD,
         name: 'Гнилая древесина',
@@ -656,17 +822,32 @@ export const items: Record<EItem, IItem> = {
             ESpot.BAMBOO
         ]
     },
-    [EItem.BAMBOO_SHOOTS]: {
-        id: EItem.BAMBOO_SHOOTS,
-        name: 'Побеги бамбука',
+    [EItem.SPRUCE_NEEDLES]: {
+        id: EItem.SPRUCE_NEEDLES,
+        name: 'Еловые иголки',
         category: ECategory.WOODCRAFTING,
-        spots: [ESpot.YOUNG_BAMBOO]
+        spots: [ESpot.SPRUCE]
     },
-    [EItem.BAMBOO_STALKS]: {
-        id: EItem.BAMBOO_STALKS,
-        name: 'Стебли бамбука',
+    [EItem.HIGH_QUALITY_WOOD]: {
+        id: EItem.HIGH_QUALITY_WOOD,
+        name: 'Качественная древесина',
         category: ECategory.WOODCRAFTING,
-        spots: [ESpot.BAMBOO]
+        spots: [
+            ESpot.SPRUCE,
+            ESpot.GLOWING_MUSHROOM
+        ]
+    },
+    [EItem.CEDAR_NEEDLES]: {
+        id: EItem.CEDAR_NEEDLES,
+        name: 'Кедровые иголки',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.CEDAR]
+    },
+    [EItem.MAPLE_LEAF]: {
+        id: EItem.MAPLE_LEAF,
+        name: 'Кленовый лист',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.MAPLE]
     },
     [EItem.ORDINARY_WOOD]: {
         id: EItem.ORDINARY_WOOD,
@@ -679,17 +860,17 @@ export const items: Record<EItem, IItem> = {
             ESpot.CEDAR
         ]
     },
-    [EItem.PEACH_BLOSSOMS]: {
-        id: EItem.PEACH_BLOSSOMS,
-        name: 'Цветы персика',
+    [EItem.FIRST_CLASS_WOOD]: {
+        id: EItem.FIRST_CLASS_WOOD,
+        name: 'Первосортная древесина',
         category: ECategory.WOODCRAFTING,
-        spots: [ESpot.PEACH_TREE]
+        spots: [ESpot.DEAD_TREE]
     },
-    [EItem.TERMITE]: {
-        id: EItem.TERMITE,
-        name: 'Термиты',
+    [EItem.BAMBOO_SHOOTS]: {
+        id: EItem.BAMBOO_SHOOTS,
+        name: 'Побеги бамбука',
         category: ECategory.WOODCRAFTING,
-        spots: [ESpot.TERMITE_MOUND]
+        spots: [ESpot.YOUNG_BAMBOO]
     },
     [EItem.SANDAL]: {
         id: EItem.SANDAL,
@@ -697,32 +878,35 @@ export const items: Record<EItem, IItem> = {
         category: ECategory.WOODCRAFTING,
         spots: [ESpot.SANDALWOOD]
     },
-    [EItem.CEDAR_NEEDLES]: {
-        id: EItem.CEDAR_NEEDLES,
-        name: 'Хвоя кедра',
-        category: ECategory.WOODCRAFTING,
-        spots: [ESpot.CEDAR]
-    },
-    [EItem.HIGH_QUALITY_WOOD]: {
-        id: EItem.HIGH_QUALITY_WOOD,
-        name: 'Качественная древесина',
-        category: ECategory.WOODCRAFTING,
-        spots: [
-            ESpot.SPRUCE,
-            ESpot.GLOWING_MUSHROOM
-        ]
-    },
-    [EItem.SPRUCE_NEEDLES]: {
-        id: EItem.SPRUCE_NEEDLES,
-        name: 'Хвоя ели',
-        category: ECategory.WOODCRAFTING,
-        spots: [ESpot.SPRUCE]
-    },
     [EItem.GLOWING_BERRY]: {
         id: EItem.GLOWING_BERRY,
         name: 'Светящаяся ягода',
         category: ECategory.WOODCRAFTING,
         spots: [ESpot.GLOWING_MUSHROOM]
+    },
+    [EItem.PITCH]: {
+        id: EItem.PITCH,
+        name: 'Смола',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.GOLDEN_OAK]
+    },
+    [EItem.BAMBOO_STALKS]: {
+        id: EItem.BAMBOO_STALKS,
+        name: 'Стебли бамбука',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.BAMBOO]
+    },
+    [EItem.TERMITE]: {
+        id: EItem.TERMITE,
+        name: 'Термит',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.TERMITE_MOUND]
+    },
+    [EItem.PEACH_BLOSSOMS]: {
+        id: EItem.PEACH_BLOSSOMS,
+        name: 'Цветы персика',
+        category: ECategory.WOODCRAFTING,
+        spots: [ESpot.PEACH_TREE]
     },
     [EItem.VALUABLE_WOOD]: {
         id: EItem.VALUABLE_WOOD,
@@ -733,28 +917,110 @@ export const items: Record<EItem, IItem> = {
             ESpot.GOLDEN_OAK
         ]
     },
-    [EItem.MAPLE_LEAFS]: {
-        id: EItem.MAPLE_LEAFS,
-        name: 'Кленовые листья',
-        category: ECategory.WOODCRAFTING,
-        spots: [ESpot.MAPLE]
-    },
-    [EItem.PITCH]: {
-        id: EItem.PITCH,
-        name: 'Смола',
-        category: ECategory.WOODCRAFTING,
-        spots: [ESpot.GOLDEN_OAK]
-    },
-    [EItem.FIRST_CLASS_WOOD]: {
-        id: EItem.FIRST_CLASS_WOOD,
-        name: 'Первоклассная древесина',
-        category: ECategory.WOODCRAFTING,
-        spots: [ESpot.DEAD_TREE]
-    },
     [EItem.STICKMAN]: {
         id: EItem.STICKMAN,
-        name: 'Чучело',
+        name: 'Палочник',
         category: ECategory.WOODCRAFTING,
         spots: [ESpot.DEAD_TREE]
+    },
+
+    //ECategory.SHADOW
+    [EItem.SHADOW_1]: {
+        id: EItem.SHADOW_1,
+        name: 'Уровень 1',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_1]
+    },
+    [EItem.SHADOW_2]: {
+        id: EItem.SHADOW_2,
+        name: 'Уровень 2',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_2]
+    },
+    [EItem.SHADOW_3]: {
+        id: EItem.SHADOW_3,
+        name: 'Уровень 3',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_3]
+    },
+    [EItem.SHADOW_4]: {
+        id: EItem.SHADOW_4,
+        name: 'Уровень 4',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_4]
+    },
+    [EItem.SHADOW_5]: {
+        id: EItem.SHADOW_5,
+        name: 'Уровень 5',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_5]
+    },
+    [EItem.SHADOW_6]: {
+        id: EItem.SHADOW_6,
+        name: 'Уровень 6',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_6]
+    },
+    [EItem.SHADOW_7]: {
+        id: EItem.SHADOW_7,
+        name: 'Уровень 7',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_7]
+    },
+    [EItem.SHADOW_8]: {
+        id: EItem.SHADOW_8,
+        name: 'Уровень 8',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_8]
+    },
+    [EItem.SHADOW_9]: {
+        id: EItem.SHADOW_9,
+        name: 'Уровень 9',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_9]
+    },
+    [EItem.SHADOW_10]: {
+        id: EItem.SHADOW_10,
+        name: 'Уровень 10',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_10]
+    },
+    [EItem.SHADOW_11]: {
+        id: EItem.SHADOW_11,
+        name: 'Уровень 11',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_11]
+    },
+    [EItem.SHADOW_12]: {
+        id: EItem.SHADOW_12,
+        name: 'Уровень 12',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_12]
+    },
+    [EItem.SHADOW_13]: {
+        id: EItem.SHADOW_13,
+        name: 'Уровень 13',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_13]
+    },
+    [EItem.SHADOW_14]: {
+        id: EItem.SHADOW_14,
+        name: 'Уровень 14',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_14]
+    },
+    [EItem.SHADOW_15]: {
+        id: EItem.SHADOW_15,
+        name: 'Уровень 15',
+        category: ECategory.SHADOW,
+        spots: [ESpot.SHADOW_15]
+    },
+
+    //ECategory.OTHER
+    [EItem.PORTAL]: {
+        id: EItem.PORTAL,
+        name: 'Портал',
+        category: ECategory.OTHER,
+        spots: [ESpot.PORTAL]
     }
 };

@@ -17,7 +17,6 @@ export function buildResourcesTree(items: Record<EItem, IItem>): TreeViewBaseIte
     id: category.toString(),
     label: categories[category].name,
     children: items
-    .sort((a, b) => a.name.localeCompare(b.name))
     .map(item => ({
       id: item.id.toString(),
       label: item.name,
