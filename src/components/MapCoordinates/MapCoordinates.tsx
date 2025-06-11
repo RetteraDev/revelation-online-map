@@ -13,7 +13,7 @@ function MapCoordinates() {
   });
 
   return (
-    <div className="leaflet-top leaflet-left">
+    <div className="leaflet-top leaflet-right">
       <div className="leaflet-control coordinates-display">
         <div className="coordinates-title">Карта</div>
         <div className="coordinates-value">

@@ -1,186 +1,238 @@
-import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { categories, ECategory, EItem, items, IItem } from "../../data/resources";
+import Box from '@mui/material/Box';
+import { RichTreeView } from '@mui/x-tree-view/RichTreeView';
+import { TreeViewBaseItem } from '@mui/x-tree-view/models';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import ClearIcon from '@mui/icons-material/Clear';
+
+import { useState, useMemo, forwardRef } from 'react';
+import { resourcesTreeFilter } from "../../data/resourcesTreeFilter";
+
+import { useTreeItem, UseTreeItemParameters } from '@mui/x-tree-view/useTreeItem';
 import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Checkbox,
-  Collapse,
-  Paper,
-  Box,
-} from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
+  TreeItemContent,
+  TreeItemIconContainer,
+  TreeItemGroupTransition,
+  TreeItemLabel,
+  TreeItemRoot,
+  TreeItemCheckbox,
+} from '@mui/x-tree-view/TreeItem';
+import { TreeItemIcon } from '@mui/x-tree-view/TreeItemIcon';
+import { TreeItemProvider } from '@mui/x-tree-view/TreeItemProvider';
+import { TreeItemDragAndDropOverlay } from '@mui/x-tree-view/TreeItemDragAndDropOverlay';
+import { getItemIconURL } from "../../utils/icon";
 
-enum CheckStatus {
-  Unchecked = 0,
-  Checked = 1,
-  Indeterminate = -1
-}
+interface CustomTreeItemProps
+  extends Omit<UseTreeItemParameters, 'rootRef'>,
+    Omit<React.HTMLAttributes<HTMLLIElement>, 'onFocus'> {}
 
-type ItemStatusMap = Record<number, number>;
+const CustomTreeItem = forwardRef(function CustomTreeItem(
+  props: CustomTreeItemProps,
+  ref: React.Ref<HTMLLIElement>,
+) {
+  const { id, itemId, label, disabled, children, ...other } = props;
 
-function MapFilter() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [expandedCategories, setExpandedCategories] = useState<number[]>([]);
-  const [itemStatuses, setItemStatuses] = useState<ItemStatusMap>({});
+  const {
+    getContextProviderProps,
+    getRootProps,
+    getContentProps,
+    getIconContainerProps,
+    getCheckboxProps,
+    getLabelProps,
+    getGroupTransitionProps,
+    getDragAndDropOverlayProps,
+    status,
+  } = useTreeItem({ id, itemId, children, label, disabled, rootRef: ref });
 
-  const containerStyles = {
-    position: 'absolute',
-    top: 24,
-    right: 24,
-    width: 500,
-    maxHeight: '70vh',
-    overflow: 'auto',
-    zIndex: 1000,
-    boxShadow: 3,
-  };
+  const [iconError, setIconError] = useState(false);
+  const iconUrl = getItemIconURL(itemId as string);
 
-  useEffect(() => {
-    const initialStatuses: ItemStatusMap = {};
-    const checkedItemsParam = searchParams.get('items')?.split(',') || [];
-
-    Object.entries(items).forEach(([itemKey, _]) => {
-      const itemId = Number(itemKey);
-      initialStatuses[itemId] = checkedItemsParam.includes(itemKey) 
-        ? CheckStatus.Checked 
-        : CheckStatus.Unchecked;
-    });
-    
-    setItemStatuses(initialStatuses);
-  }, [searchParams]);
-
-  useEffect(() => {
-    const checkedItemIds = Object.entries(itemStatuses)
-      .filter(([_, status]) => status === CheckStatus.Checked)
-      .map(([id]) => id);
-
-    const newSearchParams = new URLSearchParams(searchParams);
-    if (checkedItemIds.length > 0) {
-      newSearchParams.set('items', checkedItemIds.join(','));
-    } else {
-      newSearchParams.delete('items');
-    }
-    
-    setSearchParams(newSearchParams, { replace: true });
-  }, [itemStatuses, searchParams, setSearchParams]);
-
-  const handleCategoryClick = (categoryId: number) => {
-    setExpandedCategories(prev => 
-      prev.includes(categoryId)
-        ? prev.filter(id => id !== categoryId)
-        : [...prev, categoryId]
-    );
-  };
-
-  const getCategoryItems = (categoryId: number): number[] => {
-    return Object.entries(items)
-      .filter(([_, itemData]) => itemData.category === categoryId)
-      .map(([itemKey]) => Number(itemKey));
-  };
-
-  const computeCategoryStatus = (categoryId: number): number => {
-    const categoryItemIds = getCategoryItems(categoryId);
-    if (categoryItemIds.length === 0) return CheckStatus.Unchecked;
-
-    let checkedCount = 0;
-    let indeterminateCount = 0;
-
-    categoryItemIds.forEach(itemId => {
-      const currentStatus = itemStatuses[itemId] || CheckStatus.Unchecked;
-      if (currentStatus === CheckStatus.Checked) checkedCount++;
-      if (currentStatus === CheckStatus.Indeterminate) indeterminateCount++;
-    });
-
-    if (checkedCount === categoryItemIds.length) {
-      return CheckStatus.Checked;
-    } else if (checkedCount > 0 || indeterminateCount > 0) {
-      return CheckStatus.Indeterminate;
-    }
-    return CheckStatus.Unchecked;
-  };
-
-  const handleCheckboxChange = (id: number, isCategory: boolean) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-    
-    const newStatus = e.target.checked ? CheckStatus.Checked : CheckStatus.Unchecked;
-    const newStatuses = {...itemStatuses};
-
-    if (isCategory) {
-      const categoryItemIds = getCategoryItems(id);
-      categoryItemIds.forEach(itemId => {
-        newStatuses[itemId] = newStatus;
-      });
-    } else {
-      newStatuses[id] = newStatus;
-    }
-
-    setItemStatuses(newStatuses);
+  const handleImageError = () => {
+    setIconError(true);
   };
 
   return (
-    <Box sx={containerStyles}>
-      <Paper>
-        <List>
-            <ListItemText primary={"Фильтр ресурсов"} />
-                {Object.entries(categories).map(([categoryKey, categoryData]) => {
-                    const categoryId = Number(categoryKey);
-                    const categoryItemIds = getCategoryItems(categoryId);
-                    const categoryStatus = computeCategoryStatus(categoryId);
+    <TreeItemProvider {...getContextProviderProps()}>
+      <TreeItemRoot {...getRootProps(other)}>
+        <TreeItemContent {...getContentProps()} sx={{ justifyContent: 'flex-start' }}>
+          <TreeItemIconContainer {...getIconContainerProps()}>
+            <TreeItemIcon status={status} />
+          </TreeItemIconContainer>
+          <Box sx={{ 
+            flexGrow: 1, 
+            display: 'flex', 
+            gap: 1, 
+            alignItems: 'center',
+            overflow: 'hidden'
+          }}>
+            {/* Чекбокс первым элементом */}
+            <TreeItemCheckbox {...getCheckboxProps()} sx={{ order: 1 }} />
+            
+            {/* Иконка или запасной вариант */}
+            {!iconError ? (
+              <Box sx={{ order: 2, width: 32, height: 32, display: 'flex', alignItems: 'center' }}>
+              <img 
+                src={iconUrl} 
+                alt="" 
+                onError={handleImageError}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'contain'
+                }} 
+              />
+            </Box>
+            ) : null}
+            
+            {/* Название элемента */}
+            <TreeItemLabel 
+              {...getLabelProps()} 
+              sx={{ 
+                order: 3,
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                textAlign: 'left',
+              }} 
+            />
+          </Box>
+          <TreeItemDragAndDropOverlay {...getDragAndDropOverlayProps()} />
+        </TreeItemContent>
+        {children && <TreeItemGroupTransition {...getGroupTransitionProps()} />}
+      </TreeItemRoot>
+    </TreeItemProvider>
+  );
+});
 
-                    return (
-                    <div key={categoryKey}>
-                        <ListItem
-                        secondaryAction={
-                            <Checkbox
-                            edge="end"
-                            onChange={handleCheckboxChange(categoryId, true)}
-                            checked={categoryStatus === CheckStatus.Checked}
-                            indeterminate={categoryStatus === CheckStatus.Indeterminate}
-                            onClick={(e) => e.stopPropagation()}
-                            />
-                        }
-                        disablePadding
-                        >
-                        <ListItemButton onClick={() => handleCategoryClick(categoryId)}>
-                            <ListItemText primary={categoryData.categoryName} />
-                            {expandedCategories.includes(categoryId) ? <ExpandLess /> : <ExpandMore />}
-                        </ListItemButton>
-                        </ListItem>
-                        
-                        <Collapse in={expandedCategories.includes(categoryId)} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding sx={{ pl: 4 }}>
-                            {categoryItemIds.map(itemId => {
-                                const itemData = items[itemId as EItem];
-                            const itemStatus = itemStatuses[itemId] || CheckStatus.Unchecked;
-                            
-                            return (
-                                <ListItem
-                                key={itemId}
-                                secondaryAction={
-                                    <Checkbox
-                                    edge="end"
-                                    onChange={handleCheckboxChange(itemId, false)}
-                                    checked={itemStatus === CheckStatus.Checked}
-                                    />
-                                }
-                                disablePadding
-                                >
-                                <ListItemButton>
-                                    <ListItemText primary={itemData.itemName} />
-                                </ListItemButton>
-                                </ListItem>
-                            );
-                            })}
-                        </List>
-                        </Collapse>
-                    </div>
-                    );
-                })}
-        </List>
-      </Paper>
-    </Box>
+const getAllItemItemIds = (): string[] => {
+  const ids: string[] = [];
+  const registerItemId = (item: TreeViewBaseItem) => {
+    ids.push(item.id);
+    item.children?.forEach(registerItemId);
+  };
+
+  resourcesTreeFilter.forEach(registerItemId);
+  return ids;
+};
+
+const filterTreeItems = (items: TreeViewBaseItem[], searchText: string): TreeViewBaseItem[] => {
+  if (!searchText) return items;
+
+  return items.reduce<TreeViewBaseItem[]>((acc, item) => {
+    const matches = item.label.toLowerCase().includes(searchText.toLowerCase());
+    
+    let filteredChildren: TreeViewBaseItem[] = [];
+    if (item.children) {
+      filteredChildren = filterTreeItems(item.children, searchText);
+    }
+
+    if (matches || filteredChildren.length > 0) {
+      acc.push({
+        ...item,
+        children: filteredChildren.length > 0 ? filteredChildren : undefined
+      });
+    }
+
+    return acc;
+  }, []);
+};
+
+function MapFilter() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const selectedItems = searchParams.get('ids')?.split('_') || [];
+  const [searchText, setSearchText] = useState('');
+
+  const filteredItems = useMemo(() => {
+    return filterTreeItems(resourcesTreeFilter, searchText);
+  }, [searchText]);
+
+  const preparedSearchParams = (ids: string[]) => {
+    const newSearchParams = new URLSearchParams(searchParams);
+    if (ids.length === 0) {
+      newSearchParams.delete('ids')
+    } else {
+      newSearchParams.set('ids', ids.join('_'));
+    }
+    return newSearchParams;
+  };
+
+  const handleSelectedItemsChange = (
+    event: React.SyntheticEvent | null,
+    ids: string[],
+  ) => {
+    setSearchParams(preparedSearchParams(ids));
+  };
+
+  const handleSelectClick = () => {
+    const ids = selectedItems.length === 0 ? getAllItemItemIds() : [];
+    setSearchParams(preparedSearchParams(ids));
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(event.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchText('');
+  };
+
+  return (
+    <Stack spacing={2}>
+      <TextField
+        label="Искать по названию"
+        variant="outlined"
+        value={searchText}
+        onChange={handleSearchChange}
+        fullWidth
+        slotProps={{
+          input: {
+            endAdornment: searchText && (
+              <InputAdornment position="end">
+                <IconButton
+                  edge="end"
+                  onClick={handleClearSearch}
+                  size="small"
+                >
+                  <ClearIcon fontSize="small" />
+                </IconButton>
+              </InputAdornment>
+            ),
+          },
+        }}
+      />
+      <div>
+        <Button
+            onClick={handleSelectClick}
+            variant={selectedItems.length === 0 ? 'contained' : 'outlined'}
+            size="small"
+          >
+            {selectedItems.length === 0 ? 'Всё' : 'Сброс'}
+        </Button>
+      </div>
+      <Box sx={{ 
+        minHeight: 350, 
+        minWidth: 290,
+        '& .MuiTreeItem-content': {
+          justifyContent: 'flex-start',
+          pl: 1
+        }
+      }}>
+        <RichTreeView
+          multiSelect
+          defaultExpandedItems={['grid']}
+          checkboxSelection
+          items={filteredItems}
+          selectedItems={selectedItems}
+          onSelectedItemsChange={handleSelectedItemsChange}
+          selectionPropagation={{ parents: true, descendants: true }}
+          slots={{ item: CustomTreeItem }}
+        />
+      </Box>
+    </Stack>
   );
 }
 

@@ -1,11 +1,14 @@
 import './App.css';
 import MapFilter from './components/MapFilter/MapFilter';
 import Map from './components/Map/Map';
+import { Panel } from './components/Panel/Panel';
 
 function App() {
   return (
     <div className="App">
-      <MapFilter/>
+      <Panel>
+        <MapFilter/>
+      </Panel>
       <Map/>
     </div>
   );

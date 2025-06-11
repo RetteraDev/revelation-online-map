@@ -1,8 +1,8 @@
 import L from 'leaflet';
 
-export function getItemIcon(item: number): L.Icon {
+function getIcon(url: string) : L.Icon {
     const icon = new L.Icon({
-        iconUrl: `/revelation-online-map/icon/item/${item}.png`,
+        iconUrl: url,
         iconSize: new L.Point(20, 20),
         className: 'leaflet-div-icon'
     });
@@ -10,12 +10,18 @@ export function getItemIcon(item: number): L.Icon {
     return icon
 }
 
-export function getGatheringSpotIcon(gatheringSpotId: number): L.Icon {
-    const icon = new L.Icon({
-        iconUrl: `/revelation-online-map/icon/gatheringSpot/${gatheringSpotId}.png`,
-        iconSize: new L.Point(20, 20),
-        className: 'leaflet-div-icon'
-    });
+export function getItemIconURL(id: string): string {
+    return `/revelation-online-map/icon/item/${id}.png`
+}
 
-    return icon
+export function getSpotIconURL(id: string): string {
+    return `/revelation-online-map/icon/gatheringSpot/${id}.png`
+}
+
+export function getItemIcon(id: string): L.Icon {
+    return getIcon(getItemIconURL(id))
+}
+
+export function getSpotIcon(id: string): L.Icon {
+    return getIcon(getSpotIconURL(id))
 }
