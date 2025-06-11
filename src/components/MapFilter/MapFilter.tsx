@@ -25,6 +25,7 @@ import { TreeItemIcon } from '@mui/x-tree-view/TreeItemIcon';
 import { TreeItemProvider } from '@mui/x-tree-view/TreeItemProvider';
 import { TreeItemDragAndDropOverlay } from '@mui/x-tree-view/TreeItemDragAndDropOverlay';
 import { getItemIconURL } from "../../utils/icon";
+import Icon from "../Icon/Icon";
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItemParameters, 'rootRef'>,
@@ -48,12 +49,7 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     status,
   } = useTreeItem({ id, itemId, children, label, disabled, rootRef: ref });
 
-  const [iconError, setIconError] = useState(false);
   const iconUrl = getItemIconURL(itemId as string);
-
-  const handleImageError = () => {
-    setIconError(true);
-  };
 
   return (
     <TreeItemProvider {...getContextProviderProps()}>
@@ -71,22 +67,8 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
           }}>
             {/* Чекбокс первым элементом */}
             <TreeItemCheckbox {...getCheckboxProps()} sx={{ order: 1 }} />
-            
-            {/* Иконка или запасной вариант */}
-            {!iconError ? (
-              <Box sx={{ order: 2, width: 32, height: 32, display: 'flex', alignItems: 'center' }}>
-              <img 
-                src={iconUrl} 
-                alt="" 
-                onError={handleImageError}
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'contain'
-                }} 
-              />
-            </Box>
-            ) : null}
+
+            <Icon src={iconUrl}  sx={{ order: 2, width: 24, height: 24, display: 'flex', alignItems: 'center' }}/>
             
             {/* Название элемента */}
             <TreeItemLabel 

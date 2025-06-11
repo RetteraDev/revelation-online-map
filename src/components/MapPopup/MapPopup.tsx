@@ -2,13 +2,12 @@ import {
   Box,
   Typography,
   Divider,
-  Avatar,
   Chip,
 } from '@mui/material';
 import { EItem, ESpot, items, Location } from '../../data/resources';
 import { getItemIconURL, getSpotIconURL } from '../../utils/icon';
 import { Popup } from 'react-leaflet';
-import { useState } from 'react';
+import Icon from '../Icon/Icon';
 
 interface MapPopupProps {
   spotId: ESpot
@@ -17,31 +16,23 @@ interface MapPopupProps {
   itemIds: EItem[]
 }
 
-function MapPopup (props: MapPopupProps) {
-  const [iconError, setIconError] = useState(false);
+function MapPopup(props: MapPopupProps) {
   const iconUrl = getSpotIconURL(props.spotId);
   const hasItems = props.itemIds.length > 0;
-
-  const handleImageError = () => {
-    setIconError(true);
-  };
 
   return (
     <Popup maxWidth={400}>
       <Box display="flex" alignItems="center" mb={1}>
-        {!iconError && (
-          <Avatar 
-            src={iconUrl} 
-            onError={handleImageError}
-            sx={{ 
-              width: 40, 
-              height: 40, 
-              mr: 2,
-              border: '2px solid',
-              borderColor: 'primary.main'
-            }}
-          />
-        )}
+        <Icon 
+          src={iconUrl}
+          sx={{ 
+            width: 40, 
+            height: 40, 
+            mr: 2,
+            border: '2px solid',
+            borderColor: 'primary.main'
+          }}
+        />
         
         <Box>
           <Typography variant="subtitle1" fontWeight="bold">
@@ -63,7 +54,7 @@ function MapPopup (props: MapPopupProps) {
             {props.itemIds.map((item) => (
               <Chip
                 key={items[item].id}
-                avatar={<Avatar src={getItemIconURL(item)} />}
+                avatar={<Icon src={getItemIconURL(item)} />}
                 label={items[item].name}
                 size="small"
                 variant="outlined"
