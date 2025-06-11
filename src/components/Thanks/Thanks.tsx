@@ -21,6 +21,11 @@ const people: People[] = [
     color: green[500]
   },
   {
+    name: 'Jegermeister',
+    tooltip: 'Искатель',
+    color: green[500]
+  },
+  {
     name: 'mrsLunarie',
     tooltip: 'Искатель',
     color: green[500]
@@ -37,7 +42,7 @@ export default function Thanks() {
     return (
         <Box sx={{ p: 2 }}>
             <Typography variant="h6" gutterBottom>Над картой работали</Typography>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" flexWrap="wrap" gap={1}>
                 {people.map((person, index) => (
                     <Tooltip key={index} title={person.tooltip}>
                         <Stack alignItems="center" spacing={1}>
