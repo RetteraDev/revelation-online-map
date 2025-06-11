@@ -26,6 +26,8 @@ import { TreeItemProvider } from '@mui/x-tree-view/TreeItemProvider';
 import { TreeItemDragAndDropOverlay } from '@mui/x-tree-view/TreeItemDragAndDropOverlay';
 import { getItemIconURL } from "../../utils/icon";
 import Icon from "../Icon/Icon";
+import Thanks from "../Thanks/Thanks";
+import { Typography } from "@mui/material";
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItemParameters, 'rootRef'>,
@@ -164,6 +166,7 @@ function MapFilter() {
 
   return (
     <Stack spacing={2}>
+      <Typography variant="h6" gutterBottom>Фильтр ресурсов</Typography>
       <TextField
         label="Искать по названию"
         variant="outlined"
@@ -195,8 +198,7 @@ function MapFilter() {
             {selectedItems.length === 0 ? 'Всё' : 'Сброс'}
         </Button>
       </div>
-      <Box sx={{ 
-        minHeight: 350, 
+      <Box sx={{
         minWidth: 290,
         '& .MuiTreeItem-content': {
           justifyContent: 'flex-start',
@@ -214,6 +216,7 @@ function MapFilter() {
           slots={{ item: CustomTreeItem }}
         />
       </Box>
+      <Thanks/>
     </Stack>
   );
 }
