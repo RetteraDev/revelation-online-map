@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { getSpotIcon } from '../../utils/icon';
+import { getIcon } from '../../utils/icon';
 import { Marker } from 'react-leaflet';
 import MapPopup from '../MapPopup/MapPopup';
 import { spots } from '../../data/spot';
@@ -44,7 +44,9 @@ export default function MapMarker() {
                 },
                 drop: spot.drop,
                 icon: spot.icon
+
             });
+                console.log(spot)
             }
         });
     });
@@ -53,7 +55,7 @@ export default function MapMarker() {
         <>
             {filteredSpots.map(spot => (
                 <Marker 
-                    icon={getSpotIcon(spot.icon) || ''}
+                    icon={getIcon(spot.icon) || ''}
                     key={spot.key}
                     position={[spot.location.y, spot.location.x]}
                 >

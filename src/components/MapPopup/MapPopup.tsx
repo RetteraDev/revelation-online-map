@@ -4,7 +4,7 @@ import {
   Divider,
   Chip,
 } from '@mui/material';
-import { getItemIconURL, getSpotIconURL } from '../../utils/icon';
+import { getIconURL } from '../../utils/icon';
 import { Popup } from 'react-leaflet';
 import Icon from '../Icon/Icon';
 import { items } from '../../data/item';
@@ -20,7 +20,7 @@ interface MapPopupProps {
 }
 
 function MapPopup(props: MapPopupProps) {
-  const iconUrl = getSpotIconURL(props.spotIcon || '');
+  const iconUrl = getIconURL(props.spotIcon || '');
   const hasDrop = props.drop.length > 0;
 
   return (
@@ -60,7 +60,7 @@ function MapPopup(props: MapPopupProps) {
             {props.drop.map((item) => (
               <Chip
                 key={item}
-                avatar={<Icon src={getItemIconURL(items[item].icon)} />}
+                avatar={<Icon src={getIconURL(items[item].icon)} />}
                 label={items[item].name}
                 size="small"
                 variant="outlined"

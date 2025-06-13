@@ -90,13 +90,13 @@ export const spots: Record<string, ISpot> = {
     name: 'Шампиньон', 
     category: ECategory.HERBALISM,
     drop: [EItem.MEADOW_COLLECTION, EItem.CHAMPIGNON],
-    icon: 'champignon'
+    icon: 'champignon-spot'
   },
   [ESpot.ROSEHIP]: {
     name: 'Шиповник', 
     category: ECategory.HERBALISM,
     drop: [EItem.MEADOW_COLLECTION, EItem.ROSEHIP],
-    icon: 'rosehip'
+    icon: 'rosehip-spot'
   },
   [ESpot.FERN]: {
     name: 'Папоротник', 
@@ -126,7 +126,7 @@ export const spots: Record<string, ISpot> = {
     name: 'Кориандр', 
     category: ECategory.HERBALISM,
     drop: [EItem.FIELD_COLLECTION, EItem.CORIANDER],
-    icon: 'coriander'
+    icon: 'coriander-spot'
   },
   [ESpot.ALMOND]: {
     name: 'Миндаль', 
@@ -246,7 +246,7 @@ export const spots: Record<string, ISpot> = {
       EItem.CARPENTRY_GLUE,
       EItem.PHOENIX_FEATHERS
     ],
-    icon: 'retailer'
+    icon: 'merchant'
   },
   [ESpot.M1]: {
     name: 'Суланские товары Хоакин', 
@@ -261,7 +261,8 @@ export const spots: Record<string, ISpot> = {
       EItem.CHICKEN_FILLET,
       EItem.CARPENTRY_GLUE,
       EItem.PHOENIX_FEATHERS
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M2]: {
     name: 'Товары Фалмари Блисс Серебряный Родник', 
@@ -271,7 +272,8 @@ export const spots: Record<string, ISpot> = {
       EItem.CORAL,
       EItem.SEASHELL,
       EItem.SEAWEED
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M3]: {
     name: 'Товары фракции Боровичок-торговец', 
@@ -281,7 +283,8 @@ export const spots: Record<string, ISpot> = {
       EItem.VINEGAR,
       EItem.SALT,
       EItem.SPICE_MIX
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M4]: {
     name: 'Товары Озерной деревни Лавочница Лейна', 
@@ -291,7 +294,8 @@ export const spots: Record<string, ISpot> = {
       EItem.SHELL_FRAGMENT,
       EItem.WALNUTS,
       EItem.PINE_NUTS
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M5]: {
     name: 'Товары из Сноу-Шу Послушник Хансу', 
@@ -302,7 +306,8 @@ export const spots: Record<string, ISpot> = {
       EItem.LAMB_OFFAL,
       EItem.LAMB_SHOULDER,
       EItem.BAY_LEAF
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M6]: {
     name: 'Товары Крылатых Леланд', 
@@ -311,7 +316,8 @@ export const spots: Record<string, ISpot> = {
       EItem.LIGHT_FEATHER,
       EItem.DOWN_FEATHER,
       EItem.MOUNTAIN_HERB_INFUSION
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M7]: {
     name: 'Товары фракции Сваури', 
@@ -321,7 +327,8 @@ export const spots: Record<string, ISpot> = {
       EItem.ONION,
       EItem.POTATO,
       EItem.HONEY
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M8]: {
     name: 'Товары фракции Наставник Буань', 
@@ -331,7 +338,8 @@ export const spots: Record<string, ISpot> = {
       EItem.BAMBOO_SCROLL,
       EItem.INK,
       EItem.TWINE
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M9]: {
     name: 'Товары Кноттля Венки Полная Сумка', 
@@ -341,7 +349,8 @@ export const spots: Record<string, ISpot> = {
       EItem.RICE,
       EItem.SOYBEANS,
       EItem.BEANS
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M10]: {
     name: 'Товары Астериона Люлан', 
@@ -351,7 +360,8 @@ export const spots: Record<string, ISpot> = {
       EItem.STARCH,
       EItem.BONE_MEAL,
       EItem.CINNAMON
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M11]: {
     name: 'Товары Девятихвостых Свелли', 
@@ -361,14 +371,16 @@ export const spots: Record<string, ISpot> = {
       EItem.HYACINTH_LIQUEUR,
       EItem.GLASS_BEAD,
       EItem.SILVER_FUR
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M12]: {
     name: 'Товары Северных волков Шанья', 
     category: ECategory.MERCHANT,
     drop: [
       EItem.WOLF_WOOL
-    ]
+    ],
+    icon: 'merchant'
   },
   [ESpot.M13]: {
     name: 'Товары Калахара Интендант Гилард', 
@@ -378,7 +390,8 @@ export const spots: Record<string, ISpot> = {
       EItem.BEEF_TENDERLOIN,
       EItem.BOAR_OFFAL,
       EItem.BEEF_OFFAL
-    ]
+    ],
+    icon: 'merchant'
   },
 
   // ECategory.FISHING
@@ -465,5 +478,6 @@ export const spots: Record<string, ISpot> = {
     name: 'Портал', 
     category: ECategory.OTHER,
     drop: [],
+    icon: 'portal'
   }
 };

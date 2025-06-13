@@ -707,6 +707,7 @@ export const items: Record<string, IItem> = {
     [EItem.PORTAL]: {
       name: 'Портал',
       category: ECategory.OTHER,
+      icon: 'portal',
       spots: [ESpot.PORTAL]
     }
 };

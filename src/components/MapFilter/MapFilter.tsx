@@ -24,7 +24,7 @@ import {
 import { TreeItemIcon } from '@mui/x-tree-view/TreeItemIcon';
 import { TreeItemProvider } from '@mui/x-tree-view/TreeItemProvider';
 import { TreeItemDragAndDropOverlay } from '@mui/x-tree-view/TreeItemDragAndDropOverlay';
-import { getItemIconURL } from "../../utils/icon";
+import { getIconURL } from "../../utils/icon";
 import Icon from "../Icon/Icon";
 import Thanks from "../Thanks/Thanks";
 import { Typography } from "@mui/material";
@@ -54,7 +54,7 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     status,
   } = useTreeItem({ id, itemId, children, label, disabled, rootRef: ref });
 
-  const iconUrl = getItemIconURL(items[itemId]?.icon || '');
+  const iconUrl = getIconURL(items[itemId]?.icon || '');
 
   return (
     <TreeItemProvider {...getContextProviderProps()}>
