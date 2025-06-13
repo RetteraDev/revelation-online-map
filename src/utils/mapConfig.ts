@@ -1,11 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-L.Icon.Default.mergeOptions({
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png',
-    iconUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png',
-});
 
 const MAX_ZOOM = 6;
 const PIC_WIDTH = 15000;

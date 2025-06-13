@@ -1,26 +1,35 @@
 import { TreeViewBaseItem } from "@mui/x-tree-view"
-import { ECategory, EItem, IItem, categories, items } from "./resources";
+import { IItem, items } from "./item";
+import { categories } from "./category";
+import { ECategory, EItem } from "./enums";
+
 
 // Функция для преобразования данных в древовидную структуру
-export function buildResourcesTree(items: Record<EItem, IItem>): TreeViewBaseItem[] {
-  const itemsByCategory = new Map<ECategory, IItem[]>();
+export function buildResourcesTree(items: Record<string, IItem>): TreeViewBaseItem[] {
+  const itemsByCategory = new Map<string, string[]>();
 
-  Object.values(ECategory).forEach(category => {
-    itemsByCategory.set(category, []);
+  Object.keys(categories).forEach(categoryId => {
+    if (!categories[categoryId].hide) {
+        itemsByCategory.set(categoryId, [])
+      }
+    })
+
+  Object.keys(items).forEach(itemId => {
+    if (!items[itemId].hide) {
+      itemsByCategory.get(items[itemId].category)?.push(itemId);
+    }
   });
 
-  Object.values(items).forEach(item => {
-    itemsByCategory.get(item.category)?.push(item);
-  });
-
-  return Array.from(itemsByCategory.entries()).map(([category, items]) => ({
-    id: category.toString(),
-    label: categories[category].name,
-    children: items
+  return Array.from(itemsByCategory.entries()).map(([categoryId, itemsInCategory]) => ({
+    id: categoryId,
+    label: categories[categoryId].name,
+    children: itemsInCategory
     .map(item => ({
-      id: item.id.toString(),
-      label: item.name,
+      id: item,
+      label: items[item].name,
+      icon: 1
     })),
+    icon: 1
   }));
 }
 

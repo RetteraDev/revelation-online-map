@@ -1,17 +1,21 @@
 import { useSearchParams } from 'react-router-dom';
 import { getSpotIcon } from '../../utils/icon';
 import { Marker } from 'react-leaflet';
-import { EItem, ESpot, items, Location, spots } from '../../data/resources';
 import MapPopup from '../MapPopup/MapPopup';
+import { spots } from '../../data/spot';
+import { items } from '../../data/item';
+import { Location, spotLocations } from '../../data/location';
+import { EItem, ESpot } from '../../data/enums';
+import { decompressSearchParams } from '../../utils/searchParams';
 
 export default function MapMarker() {
     const [searchParams] = useSearchParams();
-    const selectedItems = searchParams.get('ids')?.split('_') || [];
+    const selectedItems = decompressSearchParams(searchParams.get('ids') || '');
     
     const uniqueSpots = new Set<ESpot>();
     
     selectedItems.forEach(itemId => {
-        const item = items[itemId as EItem];
+        const item = items[itemId];
         if (item?.spots) {
             item.spots.forEach(spot => uniqueSpots.add(spot));
         }
@@ -19,46 +23,46 @@ export default function MapMarker() {
     
     // Собираем все точки для отображения
     const filteredSpots: Array<{
-        id: ESpot
+        key: string
         name: string
         location: Location
-        itemIds: EItem[]
-        key: string
+        drop: EItem[],
+        icon?: string
     }> = [];
     
     Array.from(uniqueSpots).forEach(spotId => {
         const spot = spots[spotId];
-        if (spot?.locations) {
-            spot.locations.forEach((location, index) => {
+        spotLocations[spotId].forEach((location, index) => {
+            if (!spot.hide) {
                 filteredSpots.push({
-                    id: spotId,
-                    name: spot.name,
-                    location: { 
-                        x: location.x, 
-                        y: location.y, 
-                        z: location.z 
-                    },
-                    itemIds: spot.items,
-                    key: `${spotId}_${index}_${location.x}_${location.y}`
-                });
+                key: `${spotId}_${index}_${location.x}_${location.y}`,
+                name: spot.name,
+                location: { 
+                    x: location.x, 
+                    y: location.y, 
+                    z: location.z 
+                },
+                drop: spot.drop,
+                icon: spot.icon
             });
-        }
+            }
+        });
     });
 
     return (
         <>
             {filteredSpots.map(spot => (
                 <Marker 
-                    icon={getSpotIcon(spot.id.toString())}
+                    icon={getSpotIcon(spot.icon) || ''}
                     key={spot.key}
                     position={[spot.location.y, spot.location.x]}
                 >
                     <MapPopup
                         key={spot.key}
-                        spotId={spot.id}
+                        spotIcon={spot.icon}
                         spotName={spot.name}
                         coordinates={{ x: spot.location.x, y: spot.location.y, z: spot.location.z }}
-                        itemIds={spot.itemIds}
+                        drop={spot.drop}
                     />
                 </Marker>
             ))}

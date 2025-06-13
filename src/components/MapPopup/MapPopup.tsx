@@ -4,21 +4,23 @@ import {
   Divider,
   Chip,
 } from '@mui/material';
-import { EItem, ESpot, items, Location } from '../../data/resources';
 import { getItemIconURL, getSpotIconURL } from '../../utils/icon';
 import { Popup } from 'react-leaflet';
 import Icon from '../Icon/Icon';
+import { items } from '../../data/item';
+import { Location } from '../../data/location';
+import { EItem } from '../../data/enums';
 
 interface MapPopupProps {
-  spotId: ESpot
   spotName: string
   coordinates: Location
-  itemIds: EItem[]
+  spotIcon?: string
+  drop: EItem[]
 }
 
 function MapPopup(props: MapPopupProps) {
-  const iconUrl = getSpotIconURL(props.spotId);
-  const hasItems = props.itemIds.length > 0;
+  const iconUrl = getSpotIconURL(props.spotIcon || '');
+  const hasDrop = props.drop.length > 0;
 
   return (
     <Popup maxWidth={400}>
@@ -44,17 +46,17 @@ function MapPopup(props: MapPopupProps) {
         </Box>
       </Box>
 
-      {hasItems && (
+      {hasDrop && (
         <>
           <Divider sx={{ my: 1 }} />
           <Typography variant="overline" color="primary" display="block" gutterBottom>
             Можно добыть:
           </Typography>
           <Box display="flex" flexWrap="wrap" gap={1}>
-            {props.itemIds.map((item) => (
+            {props.drop.map((item) => (
               <Chip
-                key={items[item].id}
-                avatar={<Icon src={getItemIconURL(item)} />}
+                key={item}
+                avatar={<Icon src={getItemIconURL(items[item].icon)} />}
                 label={items[item].name}
                 size="small"
                 variant="outlined"

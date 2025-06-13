@@ -28,6 +28,8 @@ import { getItemIconURL } from "../../utils/icon";
 import Icon from "../Icon/Icon";
 import Thanks from "../Thanks/Thanks";
 import { Typography } from "@mui/material";
+import { items } from "../../data/item";
+import compressSearchParams, { decompressSearchParams } from "../../utils/searchParams";
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItemParameters, 'rootRef'>,
@@ -51,7 +53,7 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     status,
   } = useTreeItem({ id, itemId, children, label, disabled, rootRef: ref });
 
-  const iconUrl = getItemIconURL(itemId as string);
+  const iconUrl = getItemIconURL(items[itemId]?.icon || '');
 
   return (
     <TreeItemProvider {...getContextProviderProps()}>
@@ -127,7 +129,7 @@ const filterTreeItems = (items: TreeViewBaseItem[], searchText: string): TreeVie
 
 function MapFilter() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedItems = searchParams.get('ids')?.split('_') || [];
+  const selectedItems = decompressSearchParams(searchParams.get('ids') || '');
   const [searchText, setSearchText] = useState('');
 
   const filteredItems = useMemo(() => {
@@ -139,7 +141,7 @@ function MapFilter() {
     if (ids.length === 0) {
       newSearchParams.delete('ids')
     } else {
-      newSearchParams.set('ids', ids.join('_'));
+      newSearchParams.set('ids', compressSearchParams(ids));
     }
     return newSearchParams;
   };

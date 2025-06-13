@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import { coordinateReference } from '../../utils/mapConfig';
 import './Map.css';
 import MapCoordinates from '../MapCoordinates/MapCoordinates';
