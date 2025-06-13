@@ -1,0 +1,11 @@
+/* Улучшаем анимацию круга */
+.leaflet-interactive.animate__animated {
+  animation-duration: 0.8s;
+  animation-iteration-count: 2;
+}
+
+/* Для более плавного исчезновения */
+.leaflet-circle {
+  z-index: 10000 !important;
+  transition: opacity 0.5s ease-out;
+}

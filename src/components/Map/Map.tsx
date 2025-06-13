@@ -3,9 +3,14 @@ import { coordinateReference } from '../../utils/mapConfig';
 import './Map.css';
 import MapCoordinates from '../MapCoordinates/MapCoordinates';
 import MapMarker from '../MapMarker/MapMarker';
+import { useSearchParams } from 'react-router-dom';
+import { MapFlyToController } from '../MapFlyToController/MapFlyToController';
 
 
 function Map() {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const urlCoords = searchParams.get('center')?.split(',').map(Number)
+
     return (
         <MapContainer
             crs={coordinateReference}
@@ -22,6 +27,7 @@ function Map() {
                 url={process.env.PUBLIC_URL + '/map/{z}/{x}/{y}.jpg'}
                 noWrap={true}
             />
+            <MapFlyToController coords={urlCoords? [urlCoords[1], urlCoords[0]] : null}/>
             <MapMarker />
             <MapCoordinates />
         </MapContainer>

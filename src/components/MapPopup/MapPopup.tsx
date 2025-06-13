@@ -10,6 +10,7 @@ import Icon from '../Icon/Icon';
 import { items } from '../../data/item';
 import { Location } from '../../data/location';
 import { EItem } from '../../data/enums';
+import CopyButton from '../CopyButton/CopyButton';
 
 interface MapPopupProps {
   spotName: string
@@ -45,6 +46,9 @@ function MapPopup(props: MapPopupProps) {
           </Typography>
         </Box>
       </Box>
+      
+      <Divider sx={{ my: 1 }} />
+      <CopyButton additionSearchParams={`&center=${props.coordinates.x},${props.coordinates.y}`}/>
 
       {hasDrop && (
         <>

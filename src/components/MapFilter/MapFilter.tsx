@@ -30,6 +30,7 @@ import Thanks from "../Thanks/Thanks";
 import { Typography } from "@mui/material";
 import { items } from "../../data/item";
 import compressSearchParams, { decompressSearchParams } from "../../utils/searchParams";
+import CopyButton from "../CopyButton/CopyButton";
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItemParameters, 'rootRef'>,
@@ -137,10 +138,12 @@ function MapFilter() {
   }, [searchText]);
 
   const preparedSearchParams = (ids: string[]) => {
-    const newSearchParams = new URLSearchParams(searchParams);
+    let newSearchParams
+
     if (ids.length === 0) {
-      newSearchParams.delete('ids')
+      newSearchParams = new URLSearchParams()
     } else {
+      newSearchParams = new URLSearchParams(searchParams);
       newSearchParams.set('ids', compressSearchParams(ids));
     }
     return newSearchParams;
@@ -191,15 +194,27 @@ function MapFilter() {
           },
         }}
       />
-      <div>
-        <Button
-            onClick={handleSelectClick}
-            variant={selectedItems.length === 0 ? 'contained' : 'outlined'}
-            size="small"
-          >
-            {selectedItems.length === 0 ? 'Всё' : 'Сброс'}
-        </Button>
-      </div>
+      <Stack 
+      direction="row" 
+      spacing={1} 
+      alignItems="center"
+      sx={{
+        justifyContent: "space-between",
+        alignItems: 'stretch'
+      }}
+    >
+      <Button
+        onClick={handleSelectClick}
+        variant={selectedItems.length === 0 ? 'contained' : 'outlined'}
+        sx={{
+          textTransform: 'none'
+        }}
+      >
+        {selectedItems.length === 0 ? 'Всё' : 'Сброс'}
+      </Button>
+      
+      <CopyButton/>
+    </Stack>
       <Box sx={{
         minWidth: 290,
         '& .MuiTreeItem-content': {
