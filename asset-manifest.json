@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/revelation-online-map/static/css/main.a86ce0ac.css",
-    "main.js": "/revelation-online-map/static/js/main.41f63505.js",
+    "main.js": "/revelation-online-map/static/js/main.55d8de43.js",
     "static/js/453.94209482.chunk.js": "/revelation-online-map/static/js/453.94209482.chunk.js",
     "index.html": "/revelation-online-map/index.html",
     "main.a86ce0ac.css.map": "/revelation-online-map/static/css/main.a86ce0ac.css.map",
-    "main.41f63505.js.map": "/revelation-online-map/static/js/main.41f63505.js.map",
+    "main.55d8de43.js.map": "/revelation-online-map/static/js/main.55d8de43.js.map",
     "453.94209482.chunk.js.map": "/revelation-online-map/static/js/453.94209482.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a86ce0ac.css",
-    "static/js/main.41f63505.js"
+    "static/js/main.55d8de43.js"
   ]
 }
