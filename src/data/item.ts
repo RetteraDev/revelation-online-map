@@ -358,272 +358,326 @@ export const items: Record<string, IItem> = {
     [EItem.SILKWORM_COCOON]: {
       name: 'Кокон шелкопряда',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M4]
+      spots: [ESpot.RETAILER, ESpot.M4],
+      icon: 'silkworm-cocoon'
     },
     [EItem.PORK_TENDERLOIN]: {
       name: 'Свиная вырезка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'pork-tenderloin'
     },
     [EItem.PEARL]: {
       name: 'Жемчужина',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M2]
+      spots: [ESpot.RETAILER, ESpot.M2],
+      icon: 'pearl'
     },
     [EItem.RAPESEED_OIL]: {
       name: 'Рапсовое масло',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M3]
+      spots: [ESpot.M3],
+      icon: 'rapeseed-oil'
     },
     [EItem.LAMB_TENDERLOIN]: {
       name: 'Баранья вырезка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M5]
+      spots: [ESpot.M5],
+      icon: 'lamb-tenderloin'
     },
     [EItem.LIGHT_FEATHER]: {
       name: 'Легкое перышко',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M6]
+      spots: [ESpot.RETAILER, ESpot.M6],
+      icon: 'light-feather'
     },
     [EItem.HOT_PEPPER]: {
       name: 'Острый перец',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M7]
+      spots: [ESpot.M7],
+      icon: 'hot-pepper'
     },
     [EItem.DRAFT]: {
       name: 'Черновик',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M8]
+      spots: [ESpot.RETAILER, ESpot.M8],
+      icon: 'draft'
     },
     [EItem.MALT]: {
       name: 'Солод',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M9]
+      spots: [ESpot.M9],
+      icon: 'malt'
     },
     [EItem.WHEAT_FLOUR]: {
       name: 'Пшеничная мука',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M10]
+      spots: [ESpot.M10],
+      icon: 'wheat-flour'
     },
     [EItem.AMBERGRIS]: {
       name: 'Амбра',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M11]
+      spots: [ESpot.RETAILER, ESpot.M11],
+      icon: 'ambergris'
     },
     [EItem.WOLF_WOOL]: {
       name: 'Волчья шерсть',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M12]
+      spots: [ESpot.M12],
+      icon: 'wolf-wool'
     },
     [EItem.SOUP_SET]: {
       name: 'Суповой набор',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M13]
+      spots: [ESpot.M13],
+      icon: 'soup-set'
     },
     [EItem.SHELL_FRAGMENT]: {
       name: 'Кусочек панциря',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M4]
+      spots: [ESpot.RETAILER, ESpot.M4],
+      icon: 'shell-fragment'
     },
     [EItem.PORK_HAM]: {
       name: 'Свиной окорок',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'pork-ham'
     },
     [EItem.CORAL]: {
       name: 'Коралл',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M2]
+      spots: [ESpot.RETAILER, ESpot.M2],
+      icon: 'coral'
     },
     [EItem.VINEGAR]: {
       name: 'Уксус',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M3]
+      spots: [ESpot.M3],
+      icon: 'vinegar'
     },
     [EItem.WALNUTS]: {
       name: 'Грецкие орехи',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M4]
+      spots: [ESpot.M4],
+      icon: 'walnuts'
     },
     [EItem.LAMB_LEG]: {
       name: 'Баранья нога',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M5]
+      spots: [ESpot.M5],
+      icon: 'lamb-leg'
     },
     [EItem.DOWN_FEATHER]: {
       name: 'Пуховое перышко',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M6]
+      spots: [ESpot.RETAILER, ESpot.M6],
+      icon: 'down-feather'
     },
     [EItem.ONION]: {
       name: 'Репчатый лук',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M7]
+      spots: [ESpot.M7],
+      icon: 'onion'
     },
     [EItem.BAMBOO_SCROLL]: {
       name: 'Бамбуковый свиток',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M8]
+      spots: [ESpot.RETAILER, ESpot.M8],
+      icon: 'bamboo-scroll'
     },
     [EItem.RICE]: {
       name: 'Рис',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M9]
+      spots: [ESpot.M9],
+      icon: 'rice'
     },
     [EItem.STARCH]: {
       name: 'Крахмал',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M10]
+      spots: [ESpot.M10],
+      icon: 'starch'
     },
     [EItem.HYACINTH_LIQUEUR]: {
       name: 'Гиацинтовый ликер',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M11]
+      spots: [ESpot.RETAILER, ESpot.M11],
+      icon: 'hyacinth-liqueur'
     },
     [EItem.BEEF_TENDERLOIN]: {
       name: 'Говяжья вырезка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M13]
+      spots: [ESpot.M13],
+      icon: 'beef-tenderloin'
     },
     [EItem.PORK_SHANK]: {
       name: 'Свиные голяшки',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'pork-shank'
     },
     [EItem.SEASHELL]: {
       name: 'Ракушка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M2]
+      spots: [ESpot.RETAILER, ESpot.M2],
+      icon: 'seashell'
     },
     [EItem.SALT]: {
       name: 'Соль',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M3]
+      spots: [ESpot.M3],
+      icon: 'salt'
     },
     [EItem.PINE_NUTS]: {
       name: 'Кедровые орешки',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M4]
+      spots: [ESpot.M4],
+      icon: 'pine-nuts'
     },
     [EItem.LAMB_OFFAL]: {
       name: 'Бараньи потроха',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M5]
+      spots: [ESpot.M5],
+      icon: 'lamb-offal'
     },
     [EItem.MOUNTAIN_HERB_INFUSION]: {
       name: 'Настой горных трав',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M6]
+      spots: [ESpot.RETAILER, ESpot.M6],
+      icon: 'mountain-herb-infusion'
     },
     [EItem.POTATO]: {
       name: 'Картофель',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M7]
+      spots: [ESpot.M7],
+      icon: 'potato'
     },
     [EItem.TWINE]: {
       name: 'Бечевка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M8]
+      spots: [ESpot.RETAILER, ESpot.M8],
+      icon: 'twine'
     },
     [EItem.SOYBEANS]: {
       name: 'Соевые бобы',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M9]
+      spots: [ESpot.M9],
+      icon: 'soybeans'
     },
     [EItem.BONE_MEAL]: {
       name: 'Костная мука',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M10]
+      spots: [ESpot.RETAILER, ESpot.M10],
+      icon: 'bone-meal'
     },
     [EItem.GLASS_BEAD]: {
       name: 'Стеклянная бусина',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M11]
+      spots: [ESpot.RETAILER, ESpot.M11],
+      icon: 'glass-bead'
     },
     [EItem.BOAR_OFFAL]: {
       name: 'Потроха вепря',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M13]
+      spots: [ESpot.M13],
+      icon: 'boar-offal'
     },
     [EItem.PORK_OFFAL]: {
-      name: 'Потроха вепря',
+      name: 'Свиные потроха',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'pork-offal'
     },
     [EItem.SEAWEED]: {
       name: 'Морские водоросли',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M2]
+      spots: [ESpot.M2],
+      icon: 'seaweed'
     },
     [EItem.SPICE_MIX]: {
       name: 'Смесь приправ',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M3]
+      spots: [ESpot.M3],
+      icon: 'spice-mix'
     },
     [EItem.LAMB_SHOULDER]: {
       name: 'Баранья лопатка',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M5]
+      spots: [ESpot.M5],
+      icon: 'lamb-shoulder'
     },
     [EItem.HONEY]: {
       name: 'Мед',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M7]
+      spots: [ESpot.M7],
+      icon: 'honey'
     },
     [EItem.INK]: {
       name: 'Чернила',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M8]
+      spots: [ESpot.M8],
+      icon: 'ink'
     },
     [EItem.BEANS]: {
       name: 'Фасоль',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M9]
+      spots: [ESpot.M9],
+      icon: 'beans'
     },
     [EItem.CINNAMON]: {
       name: 'Корица',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M10]
+      spots: [ESpot.RETAILER, ESpot.M10],
+      icon: 'cinnamon'
     },
     [EItem.SILVER_FUR]: {
       name: 'Серебристый мех',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M11]
+      spots: [ESpot.RETAILER, ESpot.M11],
+      icon: 'silver-fur'
     },
     [EItem.BEEF_OFFAL]: {
       name: 'Говяжьи потроха',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M13]
+      spots: [ESpot.M13],
+      icon: 'beef-offal'
     },
     [EItem.CHICKEN_EGG]: {
       name: 'Куриное яйцо',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'chicken-egg'
     },
     [EItem.BAY_LEAF]: {
       name: 'Лавровый лист',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M5]
+      spots: [ESpot.RETAILER, ESpot.M5],
+      icon: 'bay-leaf'
     },
     [EItem.DUCK_FILLET]: {
       name: 'Утиное филе',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'duck-fillet'
     },
     [EItem.CHICKEN_FILLET]: {
       name: 'Куриное филе',
       category: ECategory.MERCHANT,
-      spots: [ESpot.M1]
+      spots: [ESpot.M1],
+      icon: 'chicken-fillet'
     },
     [EItem.CARPENTRY_GLUE]: {
       name: 'Столярный клей',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M1]
+      spots: [ESpot.RETAILER, ESpot.M1],
+      icon: 'carpentry-glue'
     },
     [EItem.PHOENIX_FEATHERS]: {
       name: 'Перья Феникса',
       category: ECategory.MERCHANT,
-      spots: [ESpot.RETAILER, ESpot.M1]
+      spots: [ESpot.RETAILER, ESpot.M1],
+      icon: 'phoenix-feathers'
     },
 
     //ECategory.SHADOW
@@ -722,7 +776,7 @@ export const items: Record<string, IItem> = {
     [EItem.PORTAL]: {
       name: 'Портал',
       category: ECategory.OTHER,
-      icon: 'portal',
-      spots: [ESpot.PORTAL]
+      spots: [ESpot.PORTAL],
+      icon: 'portal'
     }
 };
