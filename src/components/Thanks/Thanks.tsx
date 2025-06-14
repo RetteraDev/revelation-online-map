@@ -4,36 +4,82 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { green, red } from '@mui/material/colors';
+import { green, orange, red } from '@mui/material/colors';
 
 import { Tooltip } from '@mui/material';
 
+enum Server {
+  ATUM = 'Атум',
+  KENSAI = 'Кенсай',
+  RAELIS = 'Раэлис',
+}
+
+enum Role {
+  DEV = 'Разработчик',
+  RESEARCHER = 'Искатель'
+}
+
+enum ClassColor {
+  DRUID = '#4caf50',
+  GUNNER = '#f44336',
+  KNIGHT = '#ff9800'
+}
+
 type People = {
-    name: string,
-    tooltip: string,
-    color: string
-  }
+  name: string,
+  server: string,
+  role: string,
+  classColor: string
+}
 
 const people: People[] = [
   {
     name: 'Rettera',
-    tooltip: 'Разработчик',
-    color: green[500]
+    server: Server.ATUM,
+    role: Role.DEV,
+    classColor: ClassColor.DRUID
   },
   {
     name: 'Jegermeister',
-    tooltip: 'Искатель',
-    color: green[500]
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.DRUID
   },
   {
     name: 'mrsLunarie',
-    tooltip: 'Искатель',
-    color: green[500]
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.DRUID
+  },
+  {
+    name: 'Megaferz',
+    server: Server.RAELIS,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.KNIGHT
+  },
+  {
+    name: 'курвалол',
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.DRUID
+  },
+  {
+    name: 'JustJigurda',
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.DRUID
+  },
+  {
+    name: 'Usy',
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.DRUID
   },
   {
     name: 'Meimo',
-    tooltip: 'Искатель',
-    color: red[500]
+    server: Server.ATUM,
+    role: Role.RESEARCHER,
+    classColor: ClassColor.GUNNER
   }
 ];
 
@@ -44,7 +90,7 @@ export default function Thanks() {
             <Typography variant="h6" gutterBottom>Над картой работали</Typography>
             <Stack direction="row" flexWrap="wrap" gap={1}>
                 {people.map((person, index) => (
-                    <Tooltip key={index} title={person.tooltip}>
+                    <Tooltip key={index} title={`${person.role} (${person.server})`}>
                         <Stack alignItems="center" spacing={1}>
                             <Chip
                                 key={index}
@@ -52,7 +98,7 @@ export default function Thanks() {
                                 variant="outlined"
                                 size="small"
                                 sx={{ 
-                                    borderColor: person.color,
+                                    borderColor: person.classColor,
                                     borderWidth: 2,
                                     fontWeight: 'bold'
                                 }}
