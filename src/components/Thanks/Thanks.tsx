@@ -4,7 +4,6 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import { green, orange, red } from '@mui/material/colors';
 
 import { Tooltip } from '@mui/material';
 

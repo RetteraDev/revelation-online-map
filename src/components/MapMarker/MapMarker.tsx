@@ -38,15 +38,14 @@ export default function MapMarker() {
                 key: `${spotId}_${index}_${location.x}_${location.y}`,
                 name: spot.name,
                 location: { 
-                    x: location.x, 
-                    y: location.y, 
-                    z: location.z 
+                    x: Math.round(location.x), 
+                    y: Math.round(location.y), 
+                    z: Math.round(location.z)
                 },
                 drop: spot.drop,
                 icon: spot.icon
 
             });
-                console.log(spot)
             }
         });
     });
