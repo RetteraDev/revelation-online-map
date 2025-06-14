@@ -42,7 +42,6 @@ export enum ESpot {
     MULBERRY_TREE,
 
     // ECategory.WOODCRAFTING
-    YOUNG_BAMBOO,
     BAMBOO,
     PEACH_TREE,
     TERMITE_MOUND,

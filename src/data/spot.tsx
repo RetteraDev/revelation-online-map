@@ -154,16 +154,11 @@ export const spots: Record<string, ISpot> = {
   },
 
   // ECategory.WOODCRAFTING
-  [ESpot.YOUNG_BAMBOO]: {
-    name: 'Молодой бамбук', 
-    category: ECategory.WOODCRAFTING,
-    drop: [EItem.ROTTEN_WOOD, EItem.BAMBOO_SHOOTS],
-    icon: 'young-bamboo'
-  },
+
   [ESpot.BAMBOO]: {
     name: 'Бамбук', 
     category: ECategory.WOODCRAFTING,
-    drop: [EItem.ROTTEN_WOOD, EItem.BAMBOO_STALKS],
+    drop: [EItem.ROTTEN_WOOD, EItem.BAMBOO_STALKS, EItem.BAMBOO_SHOOTS],
     icon: 'bamboo'
   },
   [ESpot.PEACH_TREE]: {

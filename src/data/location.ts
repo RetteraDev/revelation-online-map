@@ -9,7 +9,7 @@ export type Location = {
 
 
 export const spotLocations: Record<string, Location[]> = {
-    [ESpot.SCATTERING_OF_PEBBLE]: [
+      [ESpot.SCATTERING_OF_PEBBLE]: [
         {x: 6143.94, y: -555.08, z: 1.67},
         {x: 5998.041992, y: -190.072388, z: 6.612902},
         {x: 5962.616211, y: -398.056702, z: 15.635506},

@@ -247,7 +247,6 @@ export const items: Record<string, IItem> = {
       category: ECategory.WOODCRAFTING,
       icon: 'rotten-wood',
       spots: [
-          ESpot.YOUNG_BAMBOO,
           ESpot.BAMBOO
       ]
     },
@@ -299,7 +298,7 @@ export const items: Record<string, IItem> = {
       name: 'Побеги бамбука',
       category: ECategory.WOODCRAFTING,
       icon: 'bamboo-shoots',
-      spots: [ESpot.YOUNG_BAMBOO]
+      spots: [ESpot.BAMBOO]
     },
     [EItem.SANDAL]: {
       name: 'Сандал',
