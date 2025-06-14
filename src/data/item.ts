@@ -630,77 +630,92 @@ export const items: Record<string, IItem> = {
     [EItem.SHADOW_1]: {
       name: 'Уровень 1',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_1]
+      spots: [ESpot.SHADOW_1],
+      icon: 'shadow-1'
     },
     [EItem.SHADOW_2]: {
       name: 'Уровень 2',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_2]
+      spots: [ESpot.SHADOW_2],
+      icon: 'shadow-2'
     },
     [EItem.SHADOW_3]: {
       name: 'Уровень 3',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_3]
+      spots: [ESpot.SHADOW_3],
+      icon: 'shadow-3'
     },
     [EItem.SHADOW_4]: {
       name: 'Уровень 4',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_4]
+      spots: [ESpot.SHADOW_4],
+      icon: 'shadow-4'
     },
     [EItem.SHADOW_5]: {
       name: 'Уровень 5',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_5]
+      spots: [ESpot.SHADOW_5],
+      icon: 'shadow-5'
     },
     [EItem.SHADOW_6]: {
       name: 'Уровень 6',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_6]
+      spots: [ESpot.SHADOW_6],
+      icon: 'shadow-6'
     },
     [EItem.SHADOW_7]: {
       name: 'Уровень 7',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_7]
+      spots: [ESpot.SHADOW_7],
+      icon: 'shadow-7'
     },
     [EItem.SHADOW_8]: {
       name: 'Уровень 8',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_8]
+      spots: [ESpot.SHADOW_8],
+      icon: 'shadow-8'
     },
     [EItem.SHADOW_9]: {
       name: 'Уровень 9',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_9]
+      spots: [ESpot.SHADOW_9],
+      icon: 'shadow-9'
     },
     [EItem.SHADOW_10]: {
       name: 'Уровень 10',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_10]
+      spots: [ESpot.SHADOW_10],
+      icon: 'shadow-10'
     },
     [EItem.SHADOW_11]: {
       name: 'Уровень 11',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_11]
+      spots: [ESpot.SHADOW_11],
+      icon: 'shadow-11'
     },
     [EItem.SHADOW_12]: {
       name: 'Уровень 12',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_12]
+      spots: [ESpot.SHADOW_12],
+      icon: 'shadow-12'
     },
     [EItem.SHADOW_13]: {
       name: 'Уровень 13',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_13]
+      spots: [ESpot.SHADOW_13],
+      icon: 'shadow-13'
     },
     [EItem.SHADOW_14]: {
       name: 'Уровень 14',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_14]
+      spots: [ESpot.SHADOW_14],
+      icon: 'shadow-14'
     },
     [EItem.SHADOW_15]: {
       name: 'Уровень 15',
       category: ECategory.SHADOW,
-      spots: [ESpot.SHADOW_15]
+      spots: [ESpot.SHADOW_15],
+      icon: 'shadow-15'
     },
 
     //ECategory.OTHER

@@ -13,6 +13,6 @@ export const categories: Record<string, ICategory> = {
   [ECategory.WOODCRAFTING]: { name: 'Заготовка древесины' },
   [ECategory.MERCHANT]: { name: 'Ресурсы у торговцев' },
   [ECategory.FISHING]: { name: 'Рыбалка', hide: true },
-  [ECategory.SHADOW]: { name: 'Мир теней', hide: true },
+  [ECategory.SHADOW]: { name: 'Мир теней' },
   [ECategory.OTHER]: { name: 'Прочее' }
 };

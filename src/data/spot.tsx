@@ -400,77 +400,92 @@ export const spots: Record<string, ISpot> = {
   [ESpot.SHADOW_1]: {
     name: 'Мир теней 1 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-1'
   },
   [ESpot.SHADOW_2]: {
     name: 'Мир теней 2 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-2'
   },
   [ESpot.SHADOW_3]: {
     name: 'Мир теней 3 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-3'
   },
   [ESpot.SHADOW_4]: {
     name: 'Мир теней 4 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-4'
   },
   [ESpot.SHADOW_5]: {
     name: 'Мир теней 5 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-5'
   },
   [ESpot.SHADOW_6]: {
     name: 'Мир теней 6 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-6'
   },
   [ESpot.SHADOW_7]: {
     name: 'Мир теней 7 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-7'
   },
   [ESpot.SHADOW_8]: {
     name: 'Мир теней 8 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-8'
   },
   [ESpot.SHADOW_9]: {
     name: 'Мир теней 9 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-9'
   },
   [ESpot.SHADOW_10]: {
     name: 'Мир теней 10 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-10'
   },
   [ESpot.SHADOW_11]: {
     name: 'Мир теней 11 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-11'
   },
   [ESpot.SHADOW_12]: {
     name: 'Мир теней 12 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-12'
   },
   [ESpot.SHADOW_13]: {
     name: 'Мир теней 13 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-13'
   },
   [ESpot.SHADOW_14]: {
     name: 'Мир теней 14 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-14'
   },
   [ESpot.SHADOW_15]: {
     name: 'Мир теней 15 ур.', 
     category: ECategory.SHADOW,
-    drop: []
+    drop: [],
+    icon: 'shadow-15'
   },
 
   // ECategory.OTHER
