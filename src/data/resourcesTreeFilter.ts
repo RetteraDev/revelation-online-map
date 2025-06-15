@@ -1,11 +1,16 @@
 import { TreeViewBaseItem } from "@mui/x-tree-view"
 import { IItem, items } from "./item";
 import { categories } from "./category";
-import { ECategory, EItem } from "./enums";
 
+export type ExtendedTreeItemProps = {
+  id: string;
+  label: string;
+  children?: TreeViewBaseItem<ExtendedTreeItemProps>[];
+  icon: string;
+};
 
 // Функция для преобразования данных в древовидную структуру
-export function buildResourcesTree(items: Record<string, IItem>): TreeViewBaseItem[] {
+export function buildResourcesTree(items: Record<string, IItem>): TreeViewBaseItem<ExtendedTreeItemProps>[] {
   const itemsByCategory = new Map<string, string[]>();
 
   Object.keys(categories).forEach(categoryId => {
@@ -27,10 +32,10 @@ export function buildResourcesTree(items: Record<string, IItem>): TreeViewBaseIt
     .map(item => ({
       id: item,
       label: items[item].name,
-      icon: 1
+      icon: items[item].icon || ''
     })),
-    icon: 1
+    icon: categories[categoryId].icon || ''
   }));
 }
 
-export const resourcesTreeFilter: TreeViewBaseItem[] = buildResourcesTree(items);
+export const resourcesTreeFilter: TreeViewBaseItem<ExtendedTreeItemProps>[] = buildResourcesTree(items);

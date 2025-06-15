@@ -10,7 +10,7 @@ import IconButton from '@mui/material/IconButton';
 import ClearIcon from '@mui/icons-material/Clear';
 
 import { useState, useMemo, forwardRef } from 'react';
-import { resourcesTreeFilter } from "../../data/resourcesTreeFilter";
+import { ExtendedTreeItemProps, resourcesTreeFilter } from "../../data/resourcesTreeFilter";
 
 import { useTreeItem, UseTreeItemParameters } from '@mui/x-tree-view/useTreeItem';
 import {
@@ -28,9 +28,9 @@ import { getIconURL } from "../../utils/icon";
 import Icon from "../Icon/Icon";
 import Thanks from "../Thanks/Thanks";
 import { Typography } from "@mui/material";
-import { items } from "../../data/item";
 import compressSearchParams, { decompressSearchParams } from "../../utils/searchParams";
 import CopyButton from "../CopyButton/CopyButton";
+import { useTreeItemModel } from "@mui/x-tree-view";
 
 interface CustomTreeItemProps
   extends Omit<UseTreeItemParameters, 'rootRef'>,
@@ -53,8 +53,8 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
     getDragAndDropOverlayProps,
     status,
   } = useTreeItem({ id, itemId, children, label, disabled, rootRef: ref });
-
-  const iconUrl = getIconURL(items[itemId]?.icon || '');
+  
+  const item = useTreeItemModel<ExtendedTreeItemProps>(itemId)!;
 
   return (
     <TreeItemProvider {...getContextProviderProps()}>
@@ -70,12 +70,8 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(
             alignItems: 'center',
             overflow: 'hidden'
           }}>
-            {/* Чекбокс первым элементом */}
             <TreeItemCheckbox {...getCheckboxProps()} sx={{ order: 1 }} />
-
-            <Icon src={iconUrl}  sx={{ order: 2, width: 24, height: 24, display: 'flex', alignItems: 'center' }}/>
-            
-            {/* Название элемента */}
+            <Icon src={getIconURL(item.icon)} sx={{ order: 2, width: 24, height: 24, display: 'flex', alignItems: 'center' }}/>
             <TreeItemLabel 
               {...getLabelProps()} 
               sx={{ 
