@@ -25,17 +25,23 @@ export function buildResourcesTree(items: Record<string, IItem>): TreeViewBaseIt
     }
   });
 
-  return Array.from(itemsByCategory.entries()).map(([categoryId, itemsInCategory]) => ({
-    id: categoryId,
-    label: categories[categoryId].name,
-    children: itemsInCategory
-    .map(item => ({
-      id: item,
-      label: items[item].name,
-      icon: items[item].icon || ''
-    })),
-    icon: categories[categoryId].icon || ''
-  }));
+  return Array.from(itemsByCategory.entries()).map(([categoryId, itemsInCategory]) => {
+    // Сортируем элементы с учетом чисел в названиях (natural sort)
+    const sortedItems = [...itemsInCategory].sort((a, b) => 
+      items[a].name.localeCompare(items[b].name, undefined, { numeric: true })
+    );
+
+    return {
+      id: categoryId,
+      label: categories[categoryId].name,
+      children: sortedItems.map(item => ({
+        id: item,
+        label: items[item].name,
+        icon: items[item].icon || '' // Защита от undefined
+      })),
+      icon: categories[categoryId].icon || '' // Защита от undefined
+    };
+  });
 }
 
 export const resourcesTreeFilter: TreeViewBaseItem<ExtendedTreeItemProps>[] = buildResourcesTree(items);
