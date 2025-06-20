@@ -5,6 +5,7 @@ import MapCoordinates from '../MapCoordinates/MapCoordinates';
 import MapMarker from '../MapMarker/MapMarker';
 import { useSearchParams } from 'react-router-dom';
 import { MapFlyToController } from '../MapFlyToController/MapFlyToController';
+import 'leaflet/dist/leaflet.css';
 
 
 function Map() {

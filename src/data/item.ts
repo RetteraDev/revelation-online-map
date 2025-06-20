@@ -139,6 +139,7 @@ export const items: Record<string, IItem> = {
       icon: 'swamp-collection',
       spots: [
           ESpot.FERN,
+          ESpot.GINSENG,
           ESpot.RATTAN
       ]
     },
