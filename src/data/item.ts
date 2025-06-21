@@ -185,7 +185,8 @@ export const items: Record<string, IItem> = {
       icon: 'meadow-collection',
       spots: [
           ESpot.CHAMPIGNON,
-          ESpot.ROSEHIP
+          ESpot.ROSEHIP,
+          ESpot.NASTURTIUM
       ]
     },
     [EItem.FIELD_COLLECTION]: {

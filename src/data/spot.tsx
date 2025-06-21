@@ -113,7 +113,7 @@ export const spots: Record<string, ISpot> = {
   [ESpot.NASTURTIUM]: {
     name: 'Настурция', 
     category: ECategory.HERBALISM,
-    drop: [EItem.NASTURTIUM_BLOSSOM],
+    drop: [EItem.MEADOW_COLLECTION, EItem.NASTURTIUM_BLOSSOM],
     icon: 'nasturtium'
   },
   [ESpot.RATTAN]: {
