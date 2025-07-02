@@ -21,7 +21,8 @@ enum Role {
 enum ClassColor {
   DRUID = '#4caf50',
   GUNNER = '#f44336',
-  KNIGHT = '#ff9800'
+  KNIGHT = '#ff9800',
+  RIPPER = '#831bbf',
 }
 
 type People = {
@@ -75,10 +76,10 @@ const people: People[] = [
     classColor: ClassColor.DRUID
   },
   {
-    name: 'Meimo',
-    server: Server.ATUM,
+    name: 'Makaonka',
+    server: Server.KENSAI,
     role: Role.RESEARCHER,
-    classColor: ClassColor.GUNNER
+    classColor: ClassColor.RIPPER
   }
 ];
 
