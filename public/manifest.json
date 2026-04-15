@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Revelation Online Map",
+  "name": "Карта ресурсов Revelation Online",
+  "description": "Расположение игровых ресурсов для игры Revelation Online",
   "icons": [
     {
       "src": "favicon.ico",
